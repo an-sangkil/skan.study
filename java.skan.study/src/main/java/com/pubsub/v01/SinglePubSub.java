@@ -1,12 +1,5 @@
-package com.aereport.adtect.web.controller.lok;
+package com.pubsub.v01;
 
-import com.aereport.adtect.common.utils.ApplicationContextProvider;
-import com.aereport.adtect.web.repository.LokRepository;
-import com.aereport.adtect.web.service.lok.LokFirstDatasetService;
-import com.aereport.jpa.entity.LokDomoDatasetMonthlyHistoryEntity;
-import com.aereport.jpa.entity.LokDomoDatasetMonthlyManagementEntity;
-import com.aereport.jpa.repository.LokDomoDatasetMonthlyHistoryJpaRepository;
-import com.aereport.jpa.repository.LokDomoDatasetMonthlyManagementJpaRepository;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.List;
@@ -21,28 +14,27 @@ import java.util.concurrent.atomic.AtomicReference;
  * </pre>
  *
  * @author skan
- * @version Copyright (C) 2021 by CJENM|MezzoMedia. All right reserved.
  * @since 2021/12/06
  */
 @Slf4j
-public class LokMessagePool {
+public class SinglePubSub {
 
-    private LokMessagePool() {
+    private SinglePubSub() {
     }
 
-    protected static volatile LokMessagePool INSTANCE;
+    protected static volatile SinglePubSub INSTANCE;
 
-    public static LokMessagePool getInstance() {
+    public static SinglePubSub getInstance() {
         if (INSTANCE == null) {
-            synchronized (LokMessagePool.class) {
-                INSTANCE = new LokMessagePool();
+            synchronized (SinglePubSub.class) {
+                INSTANCE = new SinglePubSub();
             }
         }
         return INSTANCE;
     }
 
 
-    static final LokMessagePool.ParallelService<String> parallelService = new LokMessagePool.ParallelService<>();
+    static final ParallelService<String> parallelService = new ParallelService<>();
 
     public <T> void run(T t) {
 
@@ -85,9 +77,6 @@ public class LokMessagePool {
 
         public void run() {
 
-            LokRepository lokRepository = ApplicationContextProvider.getBean(LokRepository.class);
-            LokFirstDatasetService lokFirstDatasetService = ApplicationContextProvider.getBean(LokFirstDatasetService.class);
-
             AtomicReference<String> year = new AtomicReference<>("");
             AtomicReference<String> month = new AtomicReference<>("");
             consumer.execute(() -> {
@@ -103,20 +92,6 @@ public class LokMessagePool {
                         year.set(dataAr[2]);
                         month.set(dataAr[3]);
 
-                        // 2차 계산로직 호출
-                        try {
-                            lokFirstDatasetService.LokDomoMonthBatch(year.get(), month.get(), "reset");
-
-                            //  history 상태 업데이트 성공
-                            lokRepository.lokMonthlyManagementStatusChange("SUCCESS", dataSetNumber);
-                            lokRepository.lokMonthlyHistoryStatusChange("SUCCESS", dataSetNumber, historyNumber);
-
-                        } catch (Exception e) {
-                            log.error("2차 도모데이터 재생성 에러 ", e);
-                            //  history 상태 업데이트 실패
-                            lokRepository.lokMonthlyManagementStatusChange("FAIL", dataSetNumber);
-                            lokRepository.lokMonthlyHistoryStatusChange("FAIL", dataSetNumber, historyNumber);
-                        }
                     }
 
                 } catch (InterruptedException e) {

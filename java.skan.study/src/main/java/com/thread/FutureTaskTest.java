@@ -18,7 +18,7 @@ public class FutureTaskTest {
 
     public static void main(String[] args) throws Exception {
         FutureTaskTest futureTaskTest = new FutureTaskTest();
-        futureTaskTest.futureTaskExceptionTest(1,2);
+        futureTaskTest.futureTaskExceptionTest(2,1);
         futureTaskTest.futureTaskExceptionTest(3,1);
     }
 

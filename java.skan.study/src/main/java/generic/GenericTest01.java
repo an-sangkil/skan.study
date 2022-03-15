@@ -11,7 +11,7 @@ package generic;
  * @version Copyright (C) 2021 by skan. All right reserved.
  * @since 2021/10/08
  */
-public class GenericTest {
+public class GenericTest01 {
 
     public static void main(String[] args) {
         User<String> user = new User<>();
