@@ -25,6 +25,7 @@ class GenericTest02Test {
     void create01() {
          genericTest02.create(new RequestMutateForm("test"));
     }
+
     @Test
     void create02() {
         genericTest02.create2("create 2");
