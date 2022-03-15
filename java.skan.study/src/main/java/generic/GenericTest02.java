@@ -12,21 +12,23 @@ import lombok.EqualsAndHashCode;
  */
 public class GenericTest02 {
 
-    GenericService<? super AbstractMutateForm> genericService;
+
 
     public <T extends AbstractMutateForm> void create(T data) {
         System.out.println(data);
     }
 
     public void create2(String name) {
-        genericService = new GenericService01Impl();
+        GenericService<? super AbstractMutateForm>   genericService01 = new GenericService01Impl();
+        GenericService<? super RequestMutateForm>  genericService02 = new GenericService02Impl();
+        GenericService<GoogleMutateForm>             genericService03 = new GenericService03Impl();
 
-        AbstractMutateForm mutateForm = new RequestMutateForm("request " + name);
-        genericService.create(mutateForm);
+        RequestMutateForm mutateForm2 = new RequestMutateForm("request " + name);
+        genericService01.create(mutateForm2);
+        genericService02.create(mutateForm2);
 
-        GoogleMutateForm mutateForm2 = new GoogleMutateForm("google " + name);
-        genericService = new GenericService02Impl();
-        genericService.create(mutateForm2);
+        GoogleMutateForm mutateForm3 = new GoogleMutateForm("google " + name);
+        genericService03.create(mutateForm3);
     }
 }
 
@@ -48,23 +50,29 @@ class RequestMutateForm extends AbstractMutateForm {
 @EqualsAndHashCode(callSuper = true)
 @Data
 class GoogleMutateForm extends AbstractMutateForm {
-
     String name;
     public GoogleMutateForm(String name) {
         this.name = name;
     }
-
 }
 
 
 class GenericService01Impl implements GenericService<AbstractMutateForm>{
     @Override
-    public void create(AbstractMutateForm requestMutateForm) {
+    public void create(AbstractMutateForm abstractMutateForm) {
+        System.out.println(abstractMutateForm);
+    }
+}
+
+
+class GenericService02Impl implements GenericService<RequestMutateForm>{
+    @Override
+    public void create(RequestMutateForm requestMutateForm) {
         System.out.println(requestMutateForm);
     }
 }
 
-class GenericService02Impl implements GenericService<GoogleMutateForm>{
+class GenericService03Impl implements GenericService<GoogleMutateForm>{
     @Override
     public void create(GoogleMutateForm googleMutateForm) {
         System.out.println(googleMutateForm);
