@@ -7,7 +7,7 @@ import lombok.EqualsAndHashCode;
  * Description :
  *
  * @author skan
- * @version Copyright (C) 2022 by CJENM|MezzoMedia. All right reserved.
+ * @version Copyright (C) 2022 by .All right reserved.
  * @since 2022/03/14
  */
 public class GenericTest02 {

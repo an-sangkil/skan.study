@@ -13,7 +13,7 @@ import java.util.List;
  * </pre>
  *
  * @author skan
- * @version Copyright (C) 2021 by CJENM|MezzoMedia. All right reserved.
+ * @version Copyright (C) 2021 by  All right reserved.
  * @since 2021-06-01
  */
 public class GenericExtendsTest {
@@ -45,26 +45,22 @@ public class GenericExtendsTest {
     }
 
 
-    public static  void superTestCase3(List<? super ShapesGeneric> data){
+    public static void superTestCase3(List<? super ShapesGeneric> data){
+        System.out.println(data);
+    }
+    public static void superTestCase4(List<? super Circle> data){
         System.out.println(data);
     }
 
-    public static  void superTestCase4(List<? super Circle> data){
+    public static <T extends Number> void extendsTest(T data){
         System.out.println(data);
     }
-
-    public static  <T extends Number> void extendsTest(T data){
+    public static <T extends Original> void extendsTestCase2(T data){
         System.out.println(data);
     }
-
-    public static  <T extends Original> void extendsTestCase2(T data){
+    public static <T extends ShapesGeneric> void extendsTestCase3(T data){
         System.out.println(data);
     }
-
-    public static  <T extends ShapesGeneric> void extendsTestCase3(T data){
-        System.out.println(data);
-    }
-
     public static <T extends Original>  List<T> getOriginal(T t){
         return List.of(t);
     }
