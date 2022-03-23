@@ -1,0 +1,17 @@
+buildscript {
+    ext.gradleScriptDir = "${project.getRootDir()}/spring.parent"
+    println 'spring skan study : ' + gradleScriptDir
+
+    ext {
+        springBootVersion = '2.5.7'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath "io.spring.gradle:dependency-management-plugin:1.0.11.RELEASE"
+    }
+}
+
+

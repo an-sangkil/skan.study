@@ -2,3 +2,5 @@
 .idea/
 
 .DS_Store
+
+spring.skan.study/.gradle/
