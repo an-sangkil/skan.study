@@ -1,4 +1,7 @@
+/*
+    spring 프로젝트에서 모든 프로젝트에대한 플러그인 관리 담당.
 
+ */
 
 allprojects {
     group = 'com.example'
@@ -13,4 +16,11 @@ allprojects {
         mavenCentral()
     }
 
+    // 모든 프로젝트에서 사용할 라이브러리 버전 관리
+    dependencyManagement {
+        dependencies {
+            def facebookBusinessSDK = '12.0.0'
+            dependency group: 'com.facebook.business.sdk', name: 'facebook-java-business-sdk', version: "${facebookBusinessSDK}"
+        }
+    }
 }
