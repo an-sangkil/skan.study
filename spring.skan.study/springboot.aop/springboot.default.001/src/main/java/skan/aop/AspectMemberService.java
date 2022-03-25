@@ -6,6 +6,7 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.stereotype.Component;
+import skan.annotation.Retry;
 
 import java.util.Arrays;
 import java.util.stream.Collectors;
@@ -26,7 +27,7 @@ import java.util.stream.Collectors;
 @Component
 public class AspectMemberService {
 
-    @Before("@annotation(Retry)")
+    @Before("@annotation(skan.annotation.Retry)")
     public void doSomethingBefore(JoinPoint joinPoint) {
         log.info("------------------------ BEFORE START ");
         log.info("before joinPoint= {}", joinPoint.getKind());
@@ -36,12 +37,11 @@ public class AspectMemberService {
                 ;
         log.info("------------------------ BEFORE END ");
 
-
     }
 
 
-    @Around("@annotation(Retry)")
-    public Object logPerf(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
+    @Around(value ="execution(* skan.aop.MemberService.save(String))" +"@annotation(skan.annotation.Retry)")
+    public Object processed(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
 
         log.info("------------------------ AOP-PLAIN  : START ");
         long begin = System.currentTimeMillis();
@@ -71,7 +71,7 @@ public class AspectMemberService {
         return retVal;
     }
 
-    @AfterReturning(value = "@annotation(Retry)", returning = "returnObject")
+    @AfterReturning(value = "@annotation(skan.annotation.Retry)", returning = "returnObject")
     public void doSomethingAfter(JoinPoint joinPoint, Object returnObject) {
         log.info("------------------------ AFTER  : START ");
         log.info("after returning joinPoint     = {}", joinPoint.getKind());
@@ -79,7 +79,7 @@ public class AspectMemberService {
         log.info("------------------------ AFTER : END");
     }
 
-    @AfterThrowing(value = "@annotation(Retry)", throwing = "exception")
+    @AfterThrowing(value = "@annotation(skan.annotation.Retry)", throwing = "exception")
     public void afterThrowing(JoinPoint joinPoint , Exception exception) {
 
         log.error("aop throwing",exception);

@@ -5,8 +5,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 /**
  * <pre>
  * Description :
@@ -22,13 +20,20 @@ import static org.junit.jupiter.api.Assertions.*;
 class MemberServiceImplTest {
 
 
-    @Autowired MemberService memberServiceImpl;
+    @Autowired MemberService memberService;
+
+    @Test
+    @DisplayName("저장 AOP")
+    public void save() throws Exception {
+        memberService.save("memeber name");
+    }
+
 
     @Test
     @DisplayName("예외를 일으켜 AOP 확인하기 ")
     public void aopException() throws Exception {
 
-        memberServiceImpl.delete("");
+        memberService.delete("");
 
     }
 }

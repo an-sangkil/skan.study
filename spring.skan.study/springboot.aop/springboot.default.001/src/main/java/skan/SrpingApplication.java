@@ -6,6 +6,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
+import skan.aop.MemberService;
 import skan.aop.MemberServiceImpl;
 
 /**
@@ -24,7 +26,7 @@ import skan.aop.MemberServiceImpl;
 public class SrpingApplication {
 
     @Autowired(required = false)
-    MemberServiceImpl memberService;
+    MemberService memberService;
 
     public static void main(String[] args) {
 

@@ -2,6 +2,7 @@ package skan.aop;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import skan.annotation.Retry;
 
 import java.util.Random;
 
@@ -17,18 +18,15 @@ import java.util.Random;
  * @since 2022/03/23
  */
 
-@Slf4j
 @Service
+@Slf4j
 public class MemberServiceImpl implements MemberService {
 
-    @Retry(3)
     public String save(String data) {
         log.info("data = {}", data);
         return "DATA SAVE SUCCESS";
     }
 
-    @Retry(2)
-    @Override
     public int delete(String data) throws Exception{
         Random random = new Random();
         // try catch block 에 의해 aspectThrowing 은 동작하지 안는다.

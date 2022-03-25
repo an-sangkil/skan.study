@@ -4,4 +4,5 @@ include ':spring.parent'
 include ':springboot.aop'
 include ':springboot.aop:springboot.default.001'
 include ':springboot.aop:springboot.default.aop'
+include ':springboot.aop:springboot.default.proxy'
 
