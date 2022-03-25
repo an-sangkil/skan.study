@@ -14,7 +14,7 @@ import java.lang.annotation.*;
  * @since 2022/03/23
  */
 @Inherited
-//@Target(ElementType.METHOD)
+@Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Retry {
 

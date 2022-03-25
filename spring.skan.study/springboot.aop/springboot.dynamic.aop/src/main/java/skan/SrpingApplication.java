@@ -42,6 +42,4 @@ public class SrpingApplication {
             // memberService.save("dada");
         };
     }
-
-
 }

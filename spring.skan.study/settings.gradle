@@ -2,7 +2,7 @@ rootProject.name = 'spring.skan.study'
 
 include ':spring.parent'
 include ':springboot.aop'
-include ':springboot.aop:springboot.default.001'
-include ':springboot.aop:springboot.default.aop'
+include ':springboot.aop:springboot.cglib.aop'
+include ':springboot.aop:springboot.dynamic.aop'
 include ':springboot.aop:springboot.default.proxy'
 
