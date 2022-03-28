@@ -5,3 +5,11 @@ dependencies {
 tasks.named('test') {
     useJUnitPlatform()
 }
+
+
+springBoot {
+    mainClass = "skan.dynamic.DynamicProxyApplication"
+}
+
+bootJar.enabled=true
+jar.enabled=false

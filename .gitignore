@@ -8,3 +8,9 @@ spring.skan.study/.gradle/
 spring.skan.study/springboot.aop/springboot.default.001/build/
 
 spring.skan.study/springboot.aop/springboot.default.001/out/
+
+spring.skan.study/springboot.aop/springboot.cglib.aop/build/
+
+spring.skan.study/springboot.aop/springboot.cglib.aop/out/
+
+spring.skan.study/spring.parent/build/
