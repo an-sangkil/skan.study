@@ -27,9 +27,7 @@ public class SrpingApplication {
     MemberService memberService;
 
     public static void main(String[] args) {
-
         SpringApplication.run(SrpingApplication.class);
-
     }
 
     @Bean

@@ -41,5 +41,4 @@ public class MemberService {
         //}
         return 0;
     }
-
 }
