@@ -1,10 +1,9 @@
-package skan.dynamic;
+package skan.spring.cglib;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.EnableAsync;
@@ -22,37 +21,32 @@ import org.springframework.stereotype.Service;
  * @since 2022/03/25
  */
 
-
-interface UserService {
-    void save(String data);
-}
 @Service
-class UserServiceImpl implements UserService {
-
+class MemberService {
     @Async
-    @Override
-    public void save(String data) {
-
+    void save(String data){
+        System.out.println(data);
     }
 }
 
 @EnableAsync
 @SpringBootApplication
-public class DynamicProxyApplication {
+public class CGLibProxyApplication {
 
-    @Autowired
-    ApplicationContext applicationContext;
+    @Autowired MemberService memberService;
+
     public static void main(String[] args) {
-        SpringApplication.run(DynamicProxyApplication.class);
-    }
-    @Bean
-    public CommandLineRunner init(){
-        return (strings)->{
+        SpringApplication.run(CGLibProxyApplication.class);
 
-            UserService userService = applicationContext.getBean(UserService.class);
-            System.out.println(userService.getClass());
-            // 결과가  lass skan.$Proxy33
+    }
+
+    @Bean
+    CommandLineRunner init() {
+        return args -> {
+            //결과가 lass skan.spring.cglib.MemberService$$EnhancerBySpringCGLIB$$2a6c5df2
+            System.out.println(memberService.getClass());
         };
     }
 }
+
 

@@ -8,7 +8,7 @@ tasks.named('test') {
 
 
 springBoot {
-    mainClass = "skan.dynamic.DynamicProxyApplication"
+    mainClass = "skan.spring.dynamic.DynamicProxyApplication"
 }
 
 bootJar.enabled=true

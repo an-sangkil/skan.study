@@ -3,11 +3,11 @@ package thread.blocking;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * <pre>
- * Description :
  *
+ * 지정된 시간만큼 wait 하고 wakeup 하는 오브젝트
+ *  - 지정된 시간만큼 wait 메소드를 이용하여 객체를 대기상태로 만들고, 지정된 시간이 지나면 자동으로 wakeup 된다.
+ *  - counter 를 이용하여, 현재 몇번째 재호출이 일어나는지 확인한다.
  *
- * </pre>
  *
  * @author skan
  * @version Copyright (C) 2022 by CJENM|MezzoMedia. All right reserved.

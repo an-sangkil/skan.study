@@ -6,11 +6,9 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 /**
- * <pre>
- * Description :
- *
- *
- * </pre>
+ * 지정된 시간만큼 wait 하고 wakeup 하는 오브젝트
+ *     - wait 객체에 시간설정을 하지 않고 무한정 대기
+ *     - Timer scheduler 를 사용하여 특정 시간이 지나면 wait 객체를 wakeup 한다.
  *
  * @author skan
  * @version Copyright (C) 2022 by CJENM|MezzoMedia. All right reserved.
