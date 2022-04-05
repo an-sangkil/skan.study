@@ -1,4 +1,4 @@
-package thread.blocking;
+package thread.blocking.api;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -15,10 +15,16 @@ import java.util.TimerTask;
  * @since 2022/03/28
  */
 @Slf4j
-public class ObjectBlocking01 {
+public class ObjectBlocking {
 
     public static final Object THREAD_OBJECT = new Object();
 
+    /**
+     *
+     * @param serverName         서버이름 입력
+     * @param time               밀리 세컨드 단위의 시간 입력
+     * @throws InterruptedException
+     */
     public void objectBlocking(String serverName, int time) throws InterruptedException {
 
         synchronized (THREAD_OBJECT) {

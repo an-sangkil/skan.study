@@ -1,14 +1,14 @@
-package thread.blocking;
+package thread.blocking.api;
 
-import junit.framework.TestCase;
 import org.junit.Test;
-import thread.blocking.api.ObjectApi01;
-import thread.blocking.api.ObjectApi02;
+import org.junit.jupiter.api.DisplayName;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.IntStream;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * <pre>
@@ -19,15 +19,16 @@ import java.util.stream.IntStream;
  *
  * @author skan
  * @version Copyright (C) 2022 by CJENM|MezzoMedia. All right reserved.
- * @since 2022/03/28
+ * @since 2022/04/04
  */
-public class ObjectBlocking01Test {
+public class ObjectApiTest {
 
-    ObjectBlocking01 objectBlocking01 = new ObjectBlocking01();
-    ObjectApi01 objectApi01 = new ObjectApi01();
-    ObjectApi02 objectApi02 = new ObjectApi02();
+    ObjectBlocking objectBlocking01 = new ObjectBlocking();
+    ObjectApi.ObjectApi01 objectApi01 = new ObjectApi.ObjectApi01();
+    ObjectApi.ObjectApi02 objectApi02 = new ObjectApi.ObjectApi02();
 
     @Test
+    @DisplayName("하나의 인스턴스만 테스트")
     public void testObjectBlocking() {
 
         IntStream.rangeClosed(50,55).forEach(value -> {
@@ -40,6 +41,7 @@ public class ObjectBlocking01Test {
     }
 
     @Test
+    @DisplayName("두개의 인스턴스 테스트")
     public void testCaseAPI() throws InterruptedException {
 
         ExecutorService executorService = Executors.newFixedThreadPool(2);
@@ -68,4 +70,5 @@ public class ObjectBlocking01Test {
 
 
     }
+
 }

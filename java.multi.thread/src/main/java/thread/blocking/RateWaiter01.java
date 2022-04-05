@@ -14,7 +14,7 @@ import lombok.extern.slf4j.Slf4j;
  * @since 2022/03/28
  */
 @Slf4j
-public class ObjectBlocking02 {
+public class RateWaiter01 {
 
     long currentMillis;
     int counter;
@@ -28,7 +28,7 @@ public class ObjectBlocking02 {
         DAY
     }
 
-    public ObjectBlocking02(long standardTimeMillis, Per per) {
+    public RateWaiter01(long standardTimeMillis, Per per) {
         switch (per) {
             case SECOND:
                 currentMillis = standardTimeMillis * 1000;
@@ -61,7 +61,7 @@ public class ObjectBlocking02 {
 
 @Slf4j
 class ObjectSDK {
-    ObjectBlocking02 objectBlocking02 = new ObjectBlocking02(3, ObjectBlocking02.Per.SECOND);
+    RateWaiter01 objectBlocking02 = new RateWaiter01(3, RateWaiter01.Per.SECOND);
 
     public void submit(int value) {
         try {
