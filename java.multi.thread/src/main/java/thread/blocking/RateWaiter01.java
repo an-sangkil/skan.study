@@ -16,9 +16,6 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class RateWaiter01 {
 
-    long currentMillis;
-    int counter;
-
     public enum Per {
         MICROSECOND,
         MILLISECOND,
@@ -28,28 +25,67 @@ public class RateWaiter01 {
         DAY
     }
 
+    private long count;
+    private RateWaiter01.Per unit;
+
+    private double rpms;
+    private long counter;
+    private long startMillis;
+
     public RateWaiter01(long standardTimeMillis, Per per) {
-        switch (per) {
+        this.count = count;
+        this.unit = unit;
+
+        this.counter = 0;
+        this.startMillis = System.currentTimeMillis();
+
+        switch (unit) {
+            case MICROSECOND:
+                rpms = count * 1000.0;
+                break;
+            case MILLISECOND:
+                rpms = count;
+                break;
             case SECOND:
-                currentMillis = standardTimeMillis * 1000;
+                rpms = count / 1000.0;
                 break;
             case MINUTE:
-                currentMillis = standardTimeMillis * 60000;
+                rpms = count / 60000.0;
                 break;
             case HOUR:
-                currentMillis = standardTimeMillis * 3600000;
+                rpms = count / 3600000.0;
                 break;
             case DAY:
-                currentMillis = standardTimeMillis * 86400000;
+                rpms = count / 86400000.0;
                 break;
         }
     }
 
-    public synchronized void blocking() throws InterruptedException {
+    public synchronized double blocking(int delta) throws InterruptedException {
 
-        counter += 1;
-        log.debug(String.format("counter: %3d, waited: %d ", counter,  currentMillis ));
-        wait(currentMillis);
+        long oldCounter = counter;
+        long curMillis = System.currentTimeMillis();
+        long expectMillis = (long) (counter / rpms);
+        long elapseMillis = curMillis - startMillis;
+
+        double retVal = 0;
+
+        // 전 실행 시간과 현재시간의 간격이, 예상 시간보다 작은경우, 강제로 기다리게한다.
+        if (expectMillis > elapseMillis) {
+            counter += delta;
+            long waitTime = expectMillis - elapseMillis;
+            wait(waitTime);
+            elapseMillis = System.currentTimeMillis() - startMillis;
+            retVal = (double) oldCounter / (double) elapseMillis;
+            log.debug(String.format("counter: %3d, elapse: %5d, waited: %d ", oldCounter, elapseMillis, waitTime));
+        } else {
+            retVal = (double) oldCounter / (double) elapseMillis;
+            log.debug(String.format("counter: %3d, elapse: %5d ", oldCounter, elapseMillis));
+            counter = delta;
+            startMillis = curMillis;
+        }
+
+        return retVal;
     }
 
     public synchronized void wakeup() {
@@ -66,7 +102,7 @@ class ObjectSDK {
     public void submit(int value) {
         try {
             log.debug("value count = {}", value);
-            objectBlocking02.blocking();
+            objectBlocking02.blocking(1);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
