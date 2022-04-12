@@ -1,0 +1,13 @@
+
+###
+GET http://localhost:80/room/find-all
+
+###
+PUT http://localhost:80/room/00001
+
+###
+POST http://localhost:80/room/send-message/00001
+Content-Type: application/x-www-form-urlencoded
+
+name=skan&message=test1
+###

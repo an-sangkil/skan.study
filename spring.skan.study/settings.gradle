@@ -5,4 +5,5 @@ include ':springboot.aop'
 include ':springboot.aop:springboot.cglib.aop'
 include ':springboot.aop:springboot.dynamic.aop'
 include ':springboot.aop:springboot.default.proxy'
+include 'springboot.redis'
 
