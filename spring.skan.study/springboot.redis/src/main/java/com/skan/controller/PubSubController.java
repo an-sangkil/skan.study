@@ -14,6 +14,9 @@ import org.springframework.data.redis.listener.ChannelTopic;
 import org.springframework.data.redis.listener.RedisMessageListenerContainer;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * 참고 :  https://daddyprogrammer.org/post/3688/redis-spring-data-redis-publish-subscribe/
+ */
 @RequiredArgsConstructor
 @RestController
 public class PubSubController {
