@@ -1,9 +1,10 @@
 package primitive;
 
 /**
- *  클레스 초기화 테스트
+ * 초기화블록 (initial block) 테스트
  *    - 클레스 초기화
  *    - 인스턴스 초기화
+ *    - 스테틱블록, 인스턴스 블록 초기화
  *
  *
  * @author skan
@@ -12,26 +13,31 @@ package primitive;
 public class InitializationClass {
     String DATA;
     static String class_data;
-    static {
-        class_data = "1.클레스 초기화(상수값) - 1";
-        String class_data_2 = "1.클레스 초기화-2";
-        System.out.println(class_data);
-        System.out.println(class_data_2);
-        System.out.println(ConstValue.CONST_DATA);  // 스테틱 변수,메소드..는 참조 가능
-    }
-    {
 
-        DATA = "2.인스턴스 데이터 최기화";
+
+    static {
+        // static block 클레스 로딩시 한번만
+        class_data = "1.클레스 초기화(상수값) - only one";
+        String class_data_2 = "1.클레스 초기화 - 변수 설정";
+        System.out.printf("1. 상수값 %s : \n", class_data);
+        System.out.printf("1. 스테틱안의 변수 설정된 값 %s \n", class_data_2);
+        System.out.printf("1. static 변수 참조 가능 %s \n",ConstValue.CONST_DATA);  // 스테틱 변수,메소드..는 참조 가능
+    }
+
+
+    {
+        // instance block 인스턴스가 생성될때 마다 실행
+        DATA = "2. 인스턴스 최기화 - every";
         System.out.println(DATA);
         this.methodTest();
     }
 
     public InitializationClass() {
-        System.out.println("3. 인스턴스 초기화");
+        System.out.println("3. 인스턴스 초기화 - every");
     }
 
     public void methodTest() {
-        System.out.println("call methodTest");
+        System.out.println("2.1 instance block 의 메소트 호출");
     }
 }
 
