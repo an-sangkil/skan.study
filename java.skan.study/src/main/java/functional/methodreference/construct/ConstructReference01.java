@@ -32,7 +32,6 @@ public class ConstructReference01 {
         BiFunction<String,Integer,Apple> c3 = Apple::new;
         apple = c3.apply("GREEN",200);
         System.out.println("c3 : " + apple);
-
     }
 }
 

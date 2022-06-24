@@ -22,33 +22,34 @@ public class FunctionClass02 {
         attackService.attackUser("user1", ShortSword::new, 3);
         attackService.attackUser("user2", LongSword::new, 5);
     }
-}
 
-class AttackService {
-    public void attackUser (String targetUser, Supplier<Weapon> weapon, int damage) {
-        System.out.print(targetUser +" : ");
-        weapon.get().attack(damage);
+    static class AttackService {
+        public void attackUser (String targetUser, Supplier<Weapon> weapon, int damage) {
+            System.out.print(targetUser +" : ");
+            weapon.get().attack(damage);
+        }
     }
-}
 
-@FunctionalInterface
-interface Weapon {
-    void attack(int damages);
-}
-
-class LongSword implements Weapon{
-    @Override
-    public void attack(int damages) {
-        System.out.printf("long sword attack = %s \n", damages);
+    @FunctionalInterface
+    interface Weapon {
+        void attack(int damages);
     }
-}
 
-class ShortSword implements Weapon {
-
-    @Override
-    public void attack(int damages) {
-
-        System.out.printf("short sword attack = %s \n", damages);
-
+    static class LongSword implements Weapon{
+        @Override
+        public void attack(int damages) {
+            System.out.printf("long sword attack = %s \n", damages);
+        }
     }
+
+    static class ShortSword implements Weapon {
+        @Override
+        public void attack(int damages) {
+
+            System.out.printf("short sword attack = %s \n", damages);
+
+        }
+    }
+
 }
+
