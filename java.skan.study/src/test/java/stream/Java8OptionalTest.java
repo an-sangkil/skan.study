@@ -3,12 +3,7 @@ package stream;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
-
 /**
- * <pre>
- * Description :
- *
- *
  * </pre>
  *
  * @author skan
@@ -19,9 +14,17 @@ class Java8OptionalTest {
     final Java8Optional java8Optional = new Java8Optional();
 
     @Test
-    void nullCheck() {
+    void nullCheck_ofnullable() {
         java8Optional.nullCheck01();
+    }
+
+    @Test
+    void nullCheck_of() {
         java8Optional.nullCheck02();
+    }
+
+    @Test
+    void nullCheck() {
         java8Optional.nullCheck03();
     }
 }

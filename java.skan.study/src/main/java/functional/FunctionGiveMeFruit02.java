@@ -34,14 +34,13 @@ public class FunctionGiveMeFruit02 {
     }
 
     public static void main(String[] args) {
-        FunctionGiveMeFruit02 functionGiveMeFruit = new FunctionGiveMeFruit02();
+        new FunctionGiveMeFruit02();
         Fruit fruit = FunctionGiveMeFruit02.giveMeFruit("apple", 1,"red02");
         System.out.println(fruit);
         fruit = FunctionGiveMeFruit02.giveMeFruit("apple", 2,"red01");
         System.out.println(fruit);
         fruit = FunctionGiveMeFruit02.giveMeFruit("orange", 2,"주황");
         System.out.println(fruit);
-
     }
 
 }
