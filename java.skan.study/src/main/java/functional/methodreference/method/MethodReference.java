@@ -1,6 +1,6 @@
 package functional.methodreference.method;
 
-import functional.methodreference.construct.Apple;
+import functional.model.Apple;
 
 import java.util.function.*;
 

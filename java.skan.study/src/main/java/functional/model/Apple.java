@@ -28,7 +28,12 @@ public class Apple extends Fruit {
         this.weight = weight;
     }
 
-    public Apple(int weight, String color) {
+    public Apple(String color,int weight) {
+        this.weight = weight;
+        this.color = color;
+    }
+
+    public Apple(Integer weight, String color) {
         this.weight = weight;
         this.color = color;
     }

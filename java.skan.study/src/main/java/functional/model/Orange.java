@@ -14,6 +14,9 @@ import lombok.ToString;
  * @since 2022/06/24
  */
 @ToString
+
 public class Orange extends Fruit {
 
+    public Orange(Integer integer, String s) {
+    }
 }

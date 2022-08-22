@@ -1,6 +1,7 @@
 package functional.methodreference.labada;
 
-import functional.methodreference.construct.Apple;
+
+import functional.model.Apple;
 
 import java.util.Arrays;
 import java.util.Comparator;

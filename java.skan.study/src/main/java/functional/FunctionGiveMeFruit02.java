@@ -2,6 +2,7 @@ package functional;
 
 import functional.model.Apple;
 import functional.model.Fruit;
+import functional.model.Orange;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -9,11 +10,8 @@ import java.util.function.BiFunction;
 import java.util.function.Function;
 
 /**
- * <pre>
- * Description :
  *
- *
- * </pre>
+ * 스태틱 생성자를 이용한
  *
  * @author skan
  * @version Copyright (C) 2022 by CJENM|MezzoMedia. All right reserved.
@@ -25,7 +23,7 @@ public class FunctionGiveMeFruit02 {
 
     {
         map.put("apple", Apple::new);
-        map.put("orange", Apple::new);
+        map.put("orange", Orange::new);
     }
 
     public static Fruit giveMeFruit(String fruit, int weight,String clolor) {
