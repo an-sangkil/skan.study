@@ -50,8 +50,8 @@ services:
 
           # 레디스 호스트를, 레디스컨테이너의 {호스트명,서비스명, 컨네이너명} 으로 넣어준다.
           '--spring.redis.host=redis_container',
-          '--server.port=8081',
+          '--server.port=8080',
           '--logging.level.root=info',
           #'--throttling.feign.clients.api.url=http://${DOMAIN:-localhost}:8080',
       ]
-    ports: ['8081:8081']
+    ports: ['8081:8080']
