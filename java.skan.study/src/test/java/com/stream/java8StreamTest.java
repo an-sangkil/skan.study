@@ -1,8 +1,6 @@
-package stream;
+package com.stream;
 
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * <pre>
