@@ -15,28 +15,18 @@ import org.springframework.stereotype.Service;
 @Slf4j
 public class RedisSubscriber implements MessageListener {
 
-  private final RedisTemplate<Object, Object> redisTemplate;
+    private final RedisTemplate<Object, Object> redisTemplate;
 
-  @Override
-  public void onMessage(Message message, byte[] pattern) {
-    try {
-      String body = (String) redisTemplate
-        .getStringSerializer()
-        .deserialize(message.getBody());
+    @Override
+    public void onMessage(Message message, byte[] pattern) {
+        try {
+            String body = (String) redisTemplate
+                    .getStringSerializer()
+                    .deserialize(message.getBody());
 
-      log.info("message = {}", body);
-    } catch (Exception e) {
-      e.printStackTrace();
+            log.info("message = {}", body);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
-  }
-
-  public void Stringaaaaa() {
-    String aaaa = "";
-    String ddd = "";
-    try {
-      String sssss;
-    } catch (Exception e) {
-      e.printStackTrace();
-    }
-  }
 }

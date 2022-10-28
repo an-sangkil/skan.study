@@ -14,17 +14,11 @@ public class RedisPublisher {
 
     private final RedisTemplate<Object, Object> redisTemplate;
 
-  /**
-   * 채널(토픽) 으로 메세지를 생성해서 보낸다.
-   */
-  public void sendMessage(ChannelTopic channelTopic, String message) {
-    redisTemplate.convertAndSend(channelTopic.getTopic(), message);
-  }
+    /**
+     * 채널(토픽) 으로 메세지를 생성해서 보낸다.
+     */
+    public void sendMessage(ChannelTopic channelTopic, String message) {
+        redisTemplate.convertAndSend(channelTopic.getTopic(), message);
+    }
 }
-  /* 
-   * 채널(토픽) 으로 메세지를 생성해서 보낸다.
-   */
-  public void sendMessage(ChannelTopic channelTopic, String message) {
-    redisTemplate.convertAndSend(channelTopic.getTopic(), message);
-  }
-}
+
