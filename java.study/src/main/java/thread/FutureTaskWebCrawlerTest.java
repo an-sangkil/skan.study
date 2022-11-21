@@ -1,4 +1,4 @@
-package com.thread;
+package thread;
 
 import java.time.LocalTime;
 import java.util.concurrent.*;
@@ -14,12 +14,12 @@ import java.util.concurrent.*;
  * @version Copyright (C) 2021 by CJENM|MezzoMedia. All right reserved.
  * @since 2021-03-04
  */
-public class FutureTaskTest {
+public class FutureTaskWebCrawlerTest {
 
     public static void main(String[] args) throws Exception {
-        FutureTaskTest futureTaskTest = new FutureTaskTest();
-        futureTaskTest.futureTaskExceptionTest(2,1);
-        futureTaskTest.futureTaskExceptionTest(3,1);
+        FutureTaskWebCrawlerTest futureTaskWebCrawlerTest = new FutureTaskWebCrawlerTest();
+        futureTaskWebCrawlerTest.futureTaskExceptionTest(2,1);
+        futureTaskWebCrawlerTest.futureTaskExceptionTest(3,1);
     }
 
     public void futureTaskExceptionTest (int sleepTime, int waitingTime) throws ExecutionException, InterruptedException, TimeoutException {
