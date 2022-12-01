@@ -1,14 +1,10 @@
 package exception;
 
 /**
- * <pre>
- * Description :
  *
+ *  버블링 익셉션 테스트
  *
- * </pre>
- *
- * @author skan
- * @version Copyright (C) 2022 by CJENM|MezzoMedia. All right reserved.
+ *  @author skan
  * @since 2022/11/15
  */
 public class RuntimeBubblingException {
