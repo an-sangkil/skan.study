@@ -15,8 +15,8 @@ public class TemplateMethodPattern {
 
     public static void main(String[] args) {
         System.out.println("------------------------[Genessis]-------------------------");
-        Genessis genessis = new Genessis();
-        genessis.run();
+        Genesis genesis = new Genesis();
+        genesis.run();
 
         System.out.println("------------------------[K9]-------------------------");
         K9 k9 = new K9();

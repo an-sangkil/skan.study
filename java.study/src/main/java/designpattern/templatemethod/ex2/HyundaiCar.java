@@ -11,7 +11,7 @@ package designpattern.templatemethod.ex2;
  * @version Copyright (C) 2022 by CJENM|MezzoMedia. All right reserved.
  * @since 2022/11/30
  */
-public class HyundaeCar extends Car {
+public class HyundaiCar extends Car {
     @Override
     protected void carInspection() {
         System.out.println("현대차 소프트웨어 점검");
