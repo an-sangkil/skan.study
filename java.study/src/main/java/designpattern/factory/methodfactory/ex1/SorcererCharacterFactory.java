@@ -1,4 +1,4 @@
-package designpattern.factory.methodfactory;
+package designpattern.factory.methodfactory.ex1;
 
 /**
  * <pre>
@@ -13,8 +13,10 @@ package designpattern.factory.methodfactory;
  */
 public class SorcererCharacterFactory implements CharacterFactory{
     @Override
-    public Character makeCharacter(String name, String color) {
-        Character character = new Character(name, color);
+    public Character makeCharacter() {
+        Character character = new Character();
+
+        /// 성별은 FIX
         character.setGender("FEMALE");
         return character;
     }

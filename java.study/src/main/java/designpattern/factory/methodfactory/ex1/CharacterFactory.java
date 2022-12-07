@@ -1,4 +1,4 @@
-package designpattern.factory.methodfactory;
+package designpattern.factory.methodfactory.ex1;
 
 /**
  * <pre>
@@ -17,10 +17,14 @@ public interface CharacterFactory {
         // 유효성 검사
         this.validation(name);
 
-        Character character = makeCharacter(name, color);
+        Character character = makeCharacter();
 
         // 준비
         this.prepareFor(character.getName());
+
+        // 정보 셋팅
+        character.setName(name);
+        character.setColor(color);
 
         // 데이터 저장
         this.createCharacterLog(character);
@@ -31,7 +35,7 @@ public interface CharacterFactory {
         return character;
     }
 
-    Character makeCharacter(String name, String color);
+    Character makeCharacter();
 
     // 유효성검사
     private void validation(String name) {
