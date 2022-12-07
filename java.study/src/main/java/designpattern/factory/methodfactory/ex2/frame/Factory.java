@@ -14,7 +14,7 @@ package designpattern.factory.methodfactory.ex2.frame;
 public abstract class Factory {
 
     // 프로세스
-    public Item create(ItemType itemType) {
+    public Item create(ItemFactory.ItemType itemType) {
 
         this.validation(itemType);
 
@@ -26,10 +26,10 @@ public abstract class Factory {
     }
 
     // 아이템 생성
-    abstract protected Item createItem(ItemType itemType);
+    abstract protected Item createItem(ItemFactory.ItemType itemType);
 
 
-    private void validation(ItemType itemType) {
+    private void validation(ItemFactory.ItemType itemType) {
         if (itemType== null) {
             throw  new IllegalArgumentException("아이템 타입을 선택해주세요.");
         }
@@ -40,9 +40,5 @@ public abstract class Factory {
         System.out.println(item + " 이생성되었습니다.");
     }
 
-    public enum ItemType {
-        AXE,
-        SWORD,
-        WAND,
-    }
+
 }

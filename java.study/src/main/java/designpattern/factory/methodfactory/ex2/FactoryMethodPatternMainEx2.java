@@ -1,6 +1,5 @@
 package designpattern.factory.methodfactory.ex2;
 
-import designpattern.factory.methodfactory.ex2.frame.Factory;
 import designpattern.factory.methodfactory.ex2.frame.Item;
 import designpattern.factory.methodfactory.ex2.frame.ItemFactory;
 
@@ -15,18 +14,18 @@ import designpattern.factory.methodfactory.ex2.frame.ItemFactory;
  * @version Copyright (C) 2022 by CJENM|MezzoMedia. All right reserved.
  * @since 2022/12/07
  */
-public class FactoryMethodPatternMain {
+public class FactoryMethodPatternMainEx2 {
 
     public static void main(String[] args) {
         Item item;
         ItemFactory itemFactory = new ItemFactory();
-        item = itemFactory.create(Factory.ItemType.AXE);
+        item = itemFactory.create(ItemFactory.ItemType.AXE);
         item.use();
 
-        item = itemFactory.create(Factory.ItemType.SWORD);
+        item = itemFactory.create(ItemFactory.ItemType.SWORD);
         item.use();
 
-        item = itemFactory.create(Factory.ItemType.WAND);
+        item = itemFactory.create(ItemFactory.ItemType.WAND);
         item.use();
     }
 }

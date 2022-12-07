@@ -1,4 +1,4 @@
-package designpattern.factory.methodfactory.ex1;
+package designpattern.factory.methodfactory.ex1.frame;
 
 import lombok.*;
 

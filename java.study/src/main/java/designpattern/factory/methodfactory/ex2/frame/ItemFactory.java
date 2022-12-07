@@ -33,5 +33,11 @@ public class ItemFactory extends Factory {
         return item;
     }
 
+    public enum ItemType {
+        AXE,
+        SWORD,
+        WAND,
+    }
+
 
 }
