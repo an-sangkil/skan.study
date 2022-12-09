@@ -5,11 +5,6 @@ import designpattern.factory.methodfactory.ex2.concrete.LongSword;
 import designpattern.factory.methodfactory.ex2.concrete.Wand;
 
 /**
- * <pre>
- * Description :
- *
- *
- * </pre>
  *
  * @author skan
  * @version Copyright (C) 2022 by CJENM|MezzoMedia. All right reserved.
