@@ -1,4 +1,4 @@
-package designpattern.factory.methodfactory.ex2.frame;
+package designpattern.factory.methodfactory.ex2;
 
 /**
  *

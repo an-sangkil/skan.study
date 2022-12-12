@@ -1,6 +1,4 @@
-package designpattern.factory.methodfactory.ex2.concrete;
-
-import designpattern.factory.methodfactory.ex2.frame.Item;
+package designpattern.factory.methodfactory.ex2;
 
 /**
  *

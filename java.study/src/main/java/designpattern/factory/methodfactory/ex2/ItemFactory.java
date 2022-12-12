@@ -1,8 +1,4 @@
-package designpattern.factory.methodfactory.ex2.frame;
-
-import designpattern.factory.methodfactory.ex2.concrete.Axe;
-import designpattern.factory.methodfactory.ex2.concrete.LongSword;
-import designpattern.factory.methodfactory.ex2.concrete.Wand;
+package designpattern.factory.methodfactory.ex2;
 
 /**
  *

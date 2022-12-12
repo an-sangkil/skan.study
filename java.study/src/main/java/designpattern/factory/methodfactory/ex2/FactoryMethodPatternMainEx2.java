@@ -1,8 +1,5 @@
 package designpattern.factory.methodfactory.ex2;
 
-import designpattern.factory.methodfactory.ex2.frame.Item;
-import designpattern.factory.methodfactory.ex2.frame.ItemFactory;
-
 /**
  * <pre>
  * Description :

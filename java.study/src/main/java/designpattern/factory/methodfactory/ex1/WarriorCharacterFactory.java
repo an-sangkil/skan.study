@@ -1,7 +1,7 @@
-package designpattern.factory.methodfactory.ex1.concrete;
+package designpattern.factory.methodfactory.ex1;
 
-import designpattern.factory.methodfactory.ex1.frame.Character;
-import designpattern.factory.methodfactory.ex1.frame.CharacterFactory;
+import designpattern.factory.methodfactory.ex1.Character;
+import designpattern.factory.methodfactory.ex1.CharacterFactory;
 
 /**
  * <pre>

@@ -1,10 +1,5 @@
 package designpattern.factory.methodfactory.ex1;
 
-import designpattern.factory.methodfactory.ex1.concrete.KnightCharacterFactory;
-import designpattern.factory.methodfactory.ex1.concrete.SorcererCharacterFactory;
-import designpattern.factory.methodfactory.ex1.concrete.WarriorCharacterFactory;
-import designpattern.factory.methodfactory.ex1.frame.Character;
-
 /**
  *
  * factory pattern or factory method pattern

@@ -1,4 +1,4 @@
-package designpattern.factory.methodfactory.ex1.frame;
+package designpattern.factory.methodfactory.ex1;
 
 /**
  * <pre>
