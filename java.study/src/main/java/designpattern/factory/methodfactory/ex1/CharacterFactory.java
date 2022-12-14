@@ -19,12 +19,13 @@ public interface CharacterFactory {
 
         Character character = makeCharacter();
 
-        // 준비
-        this.prepareFor(character.getName());
-
         // 정보 셋팅
         character.setName(name);
         character.setColor(color);
+
+        // 준비
+        this.prepareFor(character.getName());
+
 
         // 데이터 저장
         this.createCharacterLog(character);

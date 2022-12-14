@@ -22,8 +22,6 @@ public class Character {
         SWORD,
         AXE,
         WAND,
-
-
     }
 }
 
