@@ -1,4 +1,4 @@
-package designpattern.factory.abstractfactory;
+package designpattern.factory.abstractfactory.ex1;
 
 /**
  * <pre>
@@ -11,5 +11,10 @@ package designpattern.factory.abstractfactory;
  * @version Copyright (C) 2022 by CJENM|MezzoMedia. All right reserved.
  * @since 2022/12/05
  */
-public class Knight {
+abstract public class Person {
+
+    abstract public void attack();
+    abstract public void move();
+
+
 }

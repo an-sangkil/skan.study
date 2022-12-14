@@ -1,4 +1,10 @@
-package designpattern.factory.methodfactory.ex3_1;
+package designpattern.factory.methodfactory.ex3_2.factory;
+
+
+import designpattern.factory.methodfactory.ex3_2.NYPepperoniPizza;
+import designpattern.factory.methodfactory.ex3_2.NYStyleCheesePizza;
+import designpattern.factory.methodfactory.ex3_2.NYVeggiePizza;
+import designpattern.factory.methodfactory.ex3_2.Pizza;
 
 /**
  * <pre>
@@ -11,10 +17,12 @@ package designpattern.factory.methodfactory.ex3_1;
  * @version Copyright (C) 2022 by CJENM|MezzoMedia. All right reserved.
  * @since 2022/12/09
  */
-public class NYPizzaFactory extends PizzaStore {
+public class NYPizzaFactory implements PizzaFactory {
+
     @Override
-    Pizza createPizza(String name) {
+    public Pizza createPizza(String name) {
         Pizza pizza = null;
+
         if (name.equals("cheese")) {
             pizza = new NYStyleCheesePizza();
         } else if (name.equals("veggie")) {
@@ -24,6 +32,7 @@ public class NYPizzaFactory extends PizzaStore {
         } else {
             throw new IllegalArgumentException();
         }
+
         return pizza;
     }
 }

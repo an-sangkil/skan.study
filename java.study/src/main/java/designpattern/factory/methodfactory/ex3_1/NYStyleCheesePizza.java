@@ -1,20 +1,13 @@
 package designpattern.factory.methodfactory.ex3_1;
 
 /**
- * <pre>
- * Description :
- *
- *
- * </pre>
  *
  * @author skan
- * @version Copyright (C) 2022 by CJENM|MezzoMedia. All right reserved.
  * @since 2022/12/09
  */
-public class NYStyleCheesePizza implements Pizza {
-    @Override
-    public void prepare() {
-        System.out.println("뉴욕 치즈 피자 재료를 준비합니다.");
+public class NYStyleCheesePizza extends Pizza {
+    public NYStyleCheesePizza() {
+        name = "뉴욕 스타일의 치즈피자";
     }
 
     @Override

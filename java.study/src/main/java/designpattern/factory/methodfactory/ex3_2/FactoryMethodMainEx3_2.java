@@ -1,5 +1,8 @@
 package designpattern.factory.methodfactory.ex3_2;
 
+import designpattern.factory.methodfactory.ex3_2.factory.ChicagoPizzaFactory;
+import designpattern.factory.methodfactory.ex3_2.factory.NYPizzaFactory;
+
 /**
  * <pre>
  * Description :
@@ -15,5 +18,6 @@ public class FactoryMethodMainEx3_2 {
 
     public static void main(String[] args) {
         new NYPizzaFactory().order("cheese");
+        new ChicagoPizzaFactory().order("cheese");
     }
 }

@@ -1,4 +1,4 @@
-package designpattern.factory.abstractfactory;
+package designpattern.factory.abstractfactory.ex1;
 
 /**
  *

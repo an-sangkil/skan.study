@@ -1,4 +1,6 @@
-package designpattern.factory.methodfactory.ex3_2;
+package designpattern.factory.methodfactory.ex3_2.factory;
+
+import designpattern.factory.methodfactory.ex3_2.Pizza;
 
 /**
  * @author skan

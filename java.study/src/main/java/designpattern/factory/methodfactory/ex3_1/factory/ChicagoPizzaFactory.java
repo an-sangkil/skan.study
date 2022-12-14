@@ -1,4 +1,9 @@
-package designpattern.factory.methodfactory.ex3_1;
+package designpattern.factory.methodfactory.ex3_1.factory;
+
+import designpattern.factory.methodfactory.ex3_1.ChicagoPepperoniPizza;
+import designpattern.factory.methodfactory.ex3_1.ChicagoStyleCheesePizza;
+import designpattern.factory.methodfactory.ex3_1.ChicagoVeggiePizza;
+import designpattern.factory.methodfactory.ex3_1.Pizza;
 
 /**
  *
@@ -6,7 +11,7 @@ package designpattern.factory.methodfactory.ex3_1;
  * @version Copyright (C) 2022 by CJENM|MezzoMedia. All right reserved.
  * @since 2022/12/09
  */
-public class ChicagoPizzaFactory extends PizzaStore {
+public class ChicagoPizzaFactory extends PizzaFactory {
     @Override
     Pizza createPizza(String name) {
         Pizza pizza = null;

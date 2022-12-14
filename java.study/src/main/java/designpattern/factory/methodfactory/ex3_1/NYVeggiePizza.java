@@ -6,7 +6,7 @@ package designpattern.factory.methodfactory.ex3_1;
  * @version Copyright (C) 2022 by CJENM|MezzoMedia. All right reserved.
  * @since 2022/12/09
  */
-public class NYVeggiePizza implements Pizza {
+public class NYVeggiePizza extends Pizza {
     @Override
     public void prepare() {
         System.out.println("뉴욕 Veggie 피자 재료를 준비합니다.");

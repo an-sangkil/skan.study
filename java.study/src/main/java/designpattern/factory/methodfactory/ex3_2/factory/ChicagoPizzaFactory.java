@@ -1,34 +1,30 @@
-package designpattern.factory.methodfactory.ex3_2;
+package designpattern.factory.methodfactory.ex3_2.factory;
 
 
+import designpattern.factory.methodfactory.ex3_2.*;
 
 /**
- * <pre>
- * Description :
- *
- *
- * </pre>
  *
  * @author skan
  * @version Copyright (C) 2022 by CJENM|MezzoMedia. All right reserved.
  * @since 2022/12/09
  */
-public class NYPizzaFactory implements PizzaFactory {
+public class ChicagoPizzaFactory implements PizzaFactory {
 
     @Override
     public Pizza createPizza(String name) {
-        Pizza pizza = null;
 
+        Pizza pizza = null;
         if (name.equals("cheese")) {
-            pizza = new NYStyleCheesePizza();
+            pizza = new ChicagoStyleCheesePizza();
         } else if (name.equals("veggie")) {
-            pizza = new NYVeggiePizza();
+            pizza = new ChicagoVeggiePizza();
         } else if (name.equals("pepperoni")) {
-            pizza = new NYPepperoniPizza();
+            pizza = new ChicagoPepperoniPizza();
         } else {
             throw new IllegalArgumentException();
         }
-
         return pizza;
     }
+
 }

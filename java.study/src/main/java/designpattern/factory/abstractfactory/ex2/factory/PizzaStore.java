@@ -1,4 +1,5 @@
-package designpattern.factory.methodfactory.ex3_1;
+package designpattern.factory.abstractfactory.ex2;
+
 
 /**
  * <pre>
@@ -9,11 +10,9 @@ package designpattern.factory.methodfactory.ex3_1;
  *
  * @author skan
  * @version Copyright (C) 2022 by CJENM|MezzoMedia. All right reserved.
- * @since 2022/12/09
+ * @since 2022/12/14
  */
 public abstract class PizzaStore {
-
-
     public Pizza order (String name) {
 
         Pizza pizza = this.createPizza(name);

@@ -1,5 +1,9 @@
 package designpattern.factory.methodfactory.ex3_1;
 
+import designpattern.factory.methodfactory.ex3_1.factory.ChicagoPizzaFactory;
+import designpattern.factory.methodfactory.ex3_1.factory.NYPizzaFactory;
+import designpattern.factory.methodfactory.ex3_1.factory.PizzaFactory;
+
 /**
  *
  * @author skan
@@ -9,20 +13,20 @@ public class FactoryMethodMainEx3_1 {
 
     public static void main(String[] args) {
         System.out.println("----------------------NY--------------------------");
-        PizzaStore pizzaStore = new NYPizzaFactory();
-        pizzaStore.order("cheese");
+        PizzaFactory pizzaFactory = new NYPizzaFactory();
+        pizzaFactory.order("cheese");
         System.out.println("------------------------------------------------");
-        pizzaStore.order("veggie");
+        pizzaFactory.order("veggie");
         System.out.println("------------------------------------------------");
-        pizzaStore.order("pepperoni");
+        pizzaFactory.order("pepperoni");
 
         System.out.println("------------------------Chicago------------------------");
-        pizzaStore = new ChicagoPizzaFactory();
-        pizzaStore.order("cheese");
+        pizzaFactory = new ChicagoPizzaFactory();
+        pizzaFactory.order("cheese");
         System.out.println("------------------------------------------------");
-        pizzaStore.order("veggie");
+        pizzaFactory.order("veggie");
         System.out.println("------------------------------------------------");
-        pizzaStore.order("pepperoni");
+        pizzaFactory.order("pepperoni");
 
 
     }
