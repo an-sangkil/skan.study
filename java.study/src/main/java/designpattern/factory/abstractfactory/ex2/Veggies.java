@@ -1,14 +1,19 @@
-package designpattern.factory.abstractfactory.ex2;/**
-* <pre>
-* Description :
-*
-*
-* </pre>
-*
-* @author skan
-* @since 2022/12/14
-* @version
-*
-* Copyright (C) 2022 by CJENM|MezzoMedia. All right reserved.
-*/public class Veggies {
+package designpattern.factory.abstractfactory.ex2;
+
+/**
+ *
+ * @author skan
+ * @since 2022/12/14
+ */
+
+public class Veggies {
+   final String name;
+
+    public Veggies(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
 }

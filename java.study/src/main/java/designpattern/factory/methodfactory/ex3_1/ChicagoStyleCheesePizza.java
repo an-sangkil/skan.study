@@ -12,9 +12,9 @@ package designpattern.factory.methodfactory.ex3_1;
  * @since 2022/12/09
  */
 public class ChicagoStyleCheesePizza extends Pizza {
-    @Override
-    public void prepare() {
-        System.out.println("시카고  치즈 피자 재료를 준비합니다.");
+
+    public ChicagoStyleCheesePizza() {
+        name = "시카고 스타일의 치즈피자";
     }
 
     @Override
