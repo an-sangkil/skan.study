@@ -7,14 +7,7 @@ import designpattern.factory.abstractfactory.ex2.Sauce;
 import designpattern.factory.abstractfactory.ex2.factory.PizzaIngredientFactory;
 
 /**
- * <pre>
- * Description :
- *
- *
- * </pre>
- *
  * @author skan
- * @version Copyright (C) 2022 by CJENM|MezzoMedia. All right reserved.
  * @since 2022/12/14
  */
 public class CheesePizza extends Pizza {

@@ -1,11 +1,10 @@
 package designpattern.factory.abstractfactory.ex2.factory;
 
 import designpattern.factory.abstractfactory.ex2.*;
-import designpattern.factory.abstractfactory.ex2.Ingredient.ReggianoCheese;
-import designpattern.factory.abstractfactory.ex2.Ingredient.SlicedPepperoni;
-import designpattern.factory.abstractfactory.ex2.Ingredient.ThinCrustDough;
+import designpattern.factory.abstractfactory.ex2.Ingredient.*;
 
 /**
+ * *
  * 시카고 재료공장
  * @author skan
  * @since 2022/12/14
@@ -13,7 +12,7 @@ import designpattern.factory.abstractfactory.ex2.Ingredient.ThinCrustDough;
 public class ChicagoIngredientFactory implements  PizzaIngredientFactory {
     @Override
     public Dough createDough() {
-        return new ThinCrustDough();
+        return new ThickCrustDough();
     }
 
     @Override
@@ -23,7 +22,7 @@ public class ChicagoIngredientFactory implements  PizzaIngredientFactory {
 
     @Override
     public Sauce createSauce() {
-        return null;
+        return new PlumtomatoSauce();
     }
 
     @Override

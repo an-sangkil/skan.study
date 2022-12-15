@@ -2,16 +2,12 @@ package designpattern.factory.abstractfactory.ex2.factory;
 
 import designpattern.factory.abstractfactory.ex2.Pizza;
 import designpattern.factory.abstractfactory.ex2.concrate.CheesePizza;
+import designpattern.factory.abstractfactory.ex2.concrate.PepperoniPizza;
+import designpattern.factory.abstractfactory.ex2.concrate.VeggiePizza;
 
 /**
- * <pre>
- * Description :
  *
- *
- * </pre>
- *
- * @author skan
- * @version Copyright (C) 2022 by CJENM|MezzoMedia. All right reserved.
+ *  *  @author skan
  * @since 2022/12/14
  */
 public class ChicagoPizzaStore extends PizzaStore{
@@ -24,16 +20,15 @@ public class ChicagoPizzaStore extends PizzaStore{
 
         Pizza pizza = null;
         if (name.equals("cheese")) {
-            new CheesePizza(pizzaIngredientFactory);
+            pizza = new CheesePizza(pizzaIngredientFactory);
         } else if (name.equals("veggie")) {
-
+            pizza = new VeggiePizza(pizzaIngredientFactory);
         } else if (name.equals("pepperoni")) {
-
+            pizza =  new PepperoniPizza(pizzaIngredientFactory);
         } else {
             throw new IllegalArgumentException();
         }
 
-
-        return null;
+        return pizza;
     }
 }
