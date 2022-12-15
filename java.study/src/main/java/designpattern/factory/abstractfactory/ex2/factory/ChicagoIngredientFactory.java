@@ -4,7 +4,7 @@ import designpattern.factory.abstractfactory.ex2.*;
 import designpattern.factory.abstractfactory.ex2.Ingredient.*;
 
 /**
- * *
+ *
  * 시카고 재료공장
  * @author skan
  * @since 2022/12/14

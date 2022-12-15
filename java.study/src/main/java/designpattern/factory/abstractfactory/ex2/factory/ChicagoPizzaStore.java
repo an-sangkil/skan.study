@@ -12,6 +12,8 @@ import designpattern.factory.abstractfactory.ex2.concrate.VeggiePizza;
  */
 public class ChicagoPizzaStore extends PizzaStore{
 
+
+    // 피자 생성시 어떤 재료공장의 팩토리를 사용할지 선택한다.
     final PizzaIngredientFactory pizzaIngredientFactory = new ChicagoIngredientFactory();
 
 

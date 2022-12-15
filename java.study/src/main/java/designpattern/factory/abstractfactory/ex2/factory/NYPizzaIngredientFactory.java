@@ -7,14 +7,8 @@ import designpattern.factory.abstractfactory.ex2.Ingredient.ThickCrustDough;
 import designpattern.factory.abstractfactory.ex2.Ingredient.ThinCrustDough;
 
 /**
- * <pre>
- * Description :
- *
- *
- * </pre>
- *
+ * 뉴욕시의 재료공장
  * @author skan
- * @version Copyright (C) 2022 by CJENM|MezzoMedia. All right reserved.
  * @since 2022/12/14
  */
 public class NYPizzaIngredientFactory implements PizzaIngredientFactory {

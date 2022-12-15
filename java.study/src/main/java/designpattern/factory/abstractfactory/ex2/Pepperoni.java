@@ -6,6 +6,5 @@ package designpattern.factory.abstractfactory.ex2;
  * @since 2022/12/14
  */
 public interface Pepperoni {
-
     String name();
 }

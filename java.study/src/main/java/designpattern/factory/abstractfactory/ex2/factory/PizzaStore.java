@@ -4,14 +4,8 @@ package designpattern.factory.abstractfactory.ex2.factory;
 import designpattern.factory.abstractfactory.ex2.Pizza;
 
 /**
- * <pre>
- * Description :
- *
- *
- * </pre>
- *
+ * 추상화 생성공장
  * @author skan
- * @version Copyright (C) 2022 by CJENM|MezzoMedia. All right reserved.
  * @since 2022/12/14
  */
 public abstract class PizzaStore {
