@@ -36,9 +36,6 @@ public class NYPizzaStore extends PizzaStore {
         } else {
             throw new IllegalArgumentException();
         }
-
         return pizza;
     }
-
-
 }

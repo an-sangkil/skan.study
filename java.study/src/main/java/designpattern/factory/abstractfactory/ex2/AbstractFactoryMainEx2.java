@@ -5,14 +5,8 @@ import designpattern.factory.abstractfactory.ex2.factory.NYPizzaStore;
 import designpattern.factory.abstractfactory.ex2.factory.PizzaStore;
 
 /**
- * <pre>
- * Description :
  *
- *
- * </pre>
- *
- * @author skan
- * @version Copyright (C) 2022 by CJENM|MezzoMedia. All right reserved.
+ *  @author skan
  * @since 2022/12/14
  */
 public class AbstractFactoryMainEx2 {

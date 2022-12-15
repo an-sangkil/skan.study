@@ -16,6 +16,6 @@ import designpattern.factory.abstractfactory.ex2.Sauce;
 public class PlumtomatoSauce implements Sauce {
     @Override
     public String name() {
-        return null;
+        return "Plumtomato Sauce";
     }
 }
