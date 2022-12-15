@@ -1,4 +1,4 @@
-package designpattern.factory.methodfactory.ex3_1;
+package designpattern.factory.abstractfactory.ex2;
 
 /**
  * <pre>
@@ -11,11 +11,28 @@ package designpattern.factory.methodfactory.ex3_1;
  * @version Copyright (C) 2022 by CJENM|MezzoMedia. All right reserved.
  * @since 2022/12/09
  */
-public interface Pizza {
+public abstract class Pizza {
 
-    void prepare();
-    void bake();
-    void cut();
-    void box();
+    String name;
+    Dough dough;
+    Sauce sauce;
+    Veggies veggies[];
+    Cheese cheese;
+    Pepperoni pepperoni;
+    Clams clam;
+
+    abstract public void prepare();
+
+    public void bake() {
+        System.out.println("Bake for 25 minutes at 350");
+    }
+
+    public void cut() {
+        System.out.println("Cutting the pizza into diagonal slices");
+    }
+
+    public void box() {
+        System.out.println("Place pizza in official PizzaStore box");
+    }
 
 }

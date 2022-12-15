@@ -1,4 +1,4 @@
-package designpattern.factory.abstractfactory.ex2;
+package designpattern.factory.abstractfactory.ex2.client;
 
 /*
  *

@@ -1,5 +1,7 @@
-package designpattern.factory.abstractfactory.ex2;
+package designpattern.factory.abstractfactory.ex2.factory;
 
+
+import designpattern.factory.abstractfactory.ex2.Pizza;
 
 /**
  * <pre>
