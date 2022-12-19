@@ -1,4 +1,4 @@
-package designpattern.templatemethod.ex2;
+package designpattern.creation.templatemethod.ex2;
 
 /**
  * <pre>

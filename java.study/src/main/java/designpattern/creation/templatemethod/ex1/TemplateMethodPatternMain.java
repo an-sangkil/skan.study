@@ -1,9 +1,9 @@
-package designpattern.templatemethod.ex1;
+package designpattern.creation.templatemethod.ex1;
 
-import designpattern.templatemethod.ex1.implematation.Knight;
-import designpattern.templatemethod.ex1.implematation.Sorcerer;
-import designpattern.templatemethod.ex1.implematation.Warlock;
-import designpattern.templatemethod.ex1.implematation.Warrior;
+import designpattern.creation.templatemethod.ex1.implematation.Knight;
+import designpattern.creation.templatemethod.ex1.implematation.Sorcerer;
+import designpattern.creation.templatemethod.ex1.implematation.Warlock;
+import designpattern.creation.templatemethod.ex1.implematation.Warrior;
 
 /**
  * <pre>

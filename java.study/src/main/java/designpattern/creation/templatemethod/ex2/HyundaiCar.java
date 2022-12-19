@@ -1,4 +1,4 @@
-package designpattern.templatemethod.ex2;
+package designpattern.creation.templatemethod.ex2;
 
 /**
  * <pre>
@@ -11,15 +11,17 @@ package designpattern.templatemethod.ex2;
  * @version Copyright (C) 2022 by CJENM|MezzoMedia. All right reserved.
  * @since 2022/11/30
  */
-public class KIACar extends Car{
+public class HyundaiCar extends Car {
     @Override
     protected void carInspection() {
-        System.out.println("기아자동차 소프트웨어 점검");
+        System.out.println("현대차 소프트웨어 점검");
     }
 
     @Override
     protected void drive() {
-        System.out.println("가아자동차 드라이빙");
+
+        System.out.println("현대차 드라이빙");
+
     }
 
     @Override
