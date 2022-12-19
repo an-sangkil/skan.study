@@ -1,4 +1,4 @@
-package designpattern.templatemethod.ex2;
+package designpattern.creation.templatemethod.ex2;
 
 /**
  * <pre>
@@ -11,10 +11,5 @@ package designpattern.templatemethod.ex2;
  * @version Copyright (C) 2022 by CJENM|MezzoMedia. All right reserved.
  * @since 2022/11/30
  */
-public class Spark extends HyundaiCar {
-
-    @Override
-    protected boolean isSmartCar () {
-        return false;
-    }
+public class Genesis extends HyundaiCar {
 }
