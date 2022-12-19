@@ -1,9 +1,9 @@
 package designpattern.creation.factory.abstractfactory.ex2.factory;
 
-import designpattern.creation.factory.abstractfactory.ex2.*;
 import designpattern.creation.factory.abstractfactory.ex2.Ingredient.MarinaraSauce;
 import designpattern.creation.factory.abstractfactory.ex2.Ingredient.MozzarellaCheese;
 import designpattern.creation.factory.abstractfactory.ex2.Ingredient.ThinCrustDough;
+import designpattern.creation.factory.abstractfactory.ex2.product.*;
 
 /**
  * 뉴욕시의 재료공장

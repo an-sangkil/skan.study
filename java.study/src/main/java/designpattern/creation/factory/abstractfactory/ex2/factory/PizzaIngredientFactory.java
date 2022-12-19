@@ -1,6 +1,6 @@
 package designpattern.creation.factory.abstractfactory.ex2.factory;
 
-import designpattern.creation.factory.abstractfactory.ex2.*;
+import designpattern.creation.factory.abstractfactory.ex2.product.*;
 
 /**
  *

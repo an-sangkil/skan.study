@@ -1,8 +1,8 @@
 package designpattern.creation.factory.abstractfactory.ex2;
 
-import designpattern.creation.factory.abstractfactory.ex2.product.ChicagoPizzaStore;
-import designpattern.creation.factory.abstractfactory.ex2.product.NYPizzaStore;
-import designpattern.creation.factory.abstractfactory.ex2.product.PizzaStore;
+import designpattern.creation.factory.abstractfactory.ex2.client.ChicagoPizzaStore;
+import designpattern.creation.factory.abstractfactory.ex2.client.NYPizzaStore;
+import designpattern.creation.factory.abstractfactory.ex2.client.PizzaStore;
 
 /**
  *
