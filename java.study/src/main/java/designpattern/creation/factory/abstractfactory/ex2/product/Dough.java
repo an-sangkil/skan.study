@@ -1,4 +1,4 @@
-package designpattern.creation.factory.abstractfactory.ex2;
+package designpattern.creation.factory.abstractfactory.ex2.product;
 
 /**
  *

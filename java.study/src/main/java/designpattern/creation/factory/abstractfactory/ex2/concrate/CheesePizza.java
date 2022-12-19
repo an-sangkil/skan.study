@@ -1,9 +1,9 @@
 package designpattern.creation.factory.abstractfactory.ex2.concrate;
 
-import designpattern.creation.factory.abstractfactory.ex2.Cheese;
-import designpattern.creation.factory.abstractfactory.ex2.Dough;
-import designpattern.creation.factory.abstractfactory.ex2.Pizza;
-import designpattern.creation.factory.abstractfactory.ex2.Sauce;
+import designpattern.creation.factory.abstractfactory.ex2.product.Cheese;
+import designpattern.creation.factory.abstractfactory.ex2.product.Dough;
+import designpattern.creation.factory.abstractfactory.ex2.product.Pizza;
+import designpattern.creation.factory.abstractfactory.ex2.product.Sauce;
 import designpattern.creation.factory.abstractfactory.ex2.factory.PizzaIngredientFactory;
 
 /**

@@ -1,7 +1,7 @@
-package designpattern.creation.factory.abstractfactory.ex2.product;
+package designpattern.creation.factory.abstractfactory.ex2.client;
 
 
-import designpattern.creation.factory.abstractfactory.ex2.Pizza;
+import designpattern.creation.factory.abstractfactory.ex2.product.Pizza;
 
 /**
  * 추상화 생성공장

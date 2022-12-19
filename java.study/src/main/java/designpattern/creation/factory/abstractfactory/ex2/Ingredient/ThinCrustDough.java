@@ -1,6 +1,6 @@
 package designpattern.creation.factory.abstractfactory.ex2.Ingredient;
 
-import designpattern.creation.factory.abstractfactory.ex2.Dough;
+import designpattern.creation.factory.abstractfactory.ex2.product.Dough;
 
 /**
  *
