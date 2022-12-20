@@ -5,7 +5,7 @@ package designpattern.creation.factory.simplefactory;
  * @author skan
  * @since 2022/12/09
  */
-public class PizzaClient {
+public class SimpleFactoryPatternMain {
 
     public static void main(String[] args) {
         PizzaStore pizzaStore = new PizzaStore(new SimplePizzaFactory());

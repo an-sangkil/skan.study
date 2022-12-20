@@ -1,4 +1,4 @@
-package designpattern.creation.factory.methodfactory.ex3_2;
+package designpattern.creation.factory.methodfactory.ex3_2.product;
 
 /**
  * <pre>
