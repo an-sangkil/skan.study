@@ -1,6 +1,8 @@
 package designpattern.creation.factory.simplefactory;
 
 /**
+ *
+ * 클라이언트~~
  * @author skan
  * @since 2022/12/09
  */

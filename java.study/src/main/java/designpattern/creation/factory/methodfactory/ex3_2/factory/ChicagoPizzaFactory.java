@@ -1,7 +1,10 @@
 package designpattern.creation.factory.methodfactory.ex3_2.factory;
 
 
-import designpattern.creation.factory.methodfactory.ex3_2.*;
+import designpattern.creation.factory.methodfactory.ex3_2.product.ChicagoPepperoniPizza;
+import designpattern.creation.factory.methodfactory.ex3_2.product.ChicagoStyleCheesePizza;
+import designpattern.creation.factory.methodfactory.ex3_2.product.ChicagoVeggiePizza;
+import designpattern.creation.factory.methodfactory.ex3_2.product.Pizza;
 
 /**
  *
