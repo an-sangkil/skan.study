@@ -1,4 +1,4 @@
-package designpattern.beahvoir.chain;
+package designpattern.beahvoir.chain.ex1;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
