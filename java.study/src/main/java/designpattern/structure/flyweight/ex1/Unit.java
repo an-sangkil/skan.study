@@ -1,4 +1,4 @@
-package designpattern.structure.flyweight;
+package designpattern.structure.flyweight.ex1;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -10,13 +10,13 @@ import lombok.ToString;
  */
 @ToString
 @Getter@Setter
-public class Unit {
+abstract public class Unit {
+    private String color;
 
     public Unit(String color) {
         this.color = color;
     }
 
-    private String color;
-
+    public abstract void position(double x, double y ) ;
 
 }

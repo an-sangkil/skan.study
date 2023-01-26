@@ -1,4 +1,4 @@
-package designpattern.structure.flyweight;
+package designpattern.structure.flyweight.ex1;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -14,8 +14,7 @@ public class ItemFactory {
     public Unit create(String key, String type) {
 
         if (unitPool.containsKey(key)) {
-            System.out.println("repair : ===============================");
-            System.out.println(unitPool.get(key));
+            System.out.print("repair :  ");
             return unitPool.get(key);
         } else {
 
@@ -24,9 +23,7 @@ public class ItemFactory {
                 case "marin" -> new Marin(key);
                 default -> throw new IllegalArgumentException("type 이 존재 하지 않습니다.");
             };
-
-            System.out.println("New    :  ===============================");
-            System.out.println(item);
+            System.out.print("New    :  ");
 
             unitPool.put(key,item);
 
