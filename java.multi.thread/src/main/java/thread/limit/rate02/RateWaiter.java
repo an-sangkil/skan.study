@@ -1,4 +1,4 @@
-package thread.blocking;
+package thread.limit.rate02;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -8,7 +8,6 @@ import lombok.extern.slf4j.Slf4j;
  * - counter 를 이용하여, 현재 몇번째 재호출이 일어나는지 확인한다.
  *
  * @author skan
- * @version Copyright (C) 2022 by |. All right reserved.
  * @since 2022/03/28
  */
 @Slf4j
@@ -24,9 +23,6 @@ public class RateWaiter02 {
         DAY
     }
 
-    private long count;
-    private Per unit;
-
     private double rpm;
     private long counter;
     private long startMillis;
@@ -37,6 +33,7 @@ public class RateWaiter02 {
      * {@code
      * new RateWaiter02(1, SECOND);  초당 딜레이시간 기본 1초
      * new RateWaiter02(2, SECOND);  초당 딜레이시간 기본 2초
+     * new RateWaiter02(3, SECOND);  초당 딜레이시간 기본 3초
      * }
      *
      * @param count rpm 을 미세 조정 하는 숫자,
@@ -44,37 +41,25 @@ public class RateWaiter02 {
      */
     public RateWaiter02(long count, Per unit) {
 
-        this.count = count;
-        this.unit = unit;
         this.startMillis = System.currentTimeMillis();
         this.counter = 0;
 
         switch (unit) {
-            case MILLISECOND:
-                rpm = count * 100;
-                break;
-            case SECOND:
-                rpm = count * 1000;
-                break;
-            case MINUTE:
-                rpm = count * 60000;
-                break;
-            case HOUR:
-                rpm = count * 3600000;
-                break;
-            case DAY:
-                rpm = count * 86400000;
-                break;
+            case MILLISECOND -> rpm = count * 100;
+            case SECOND -> rpm = count * 1000;
+            case MINUTE -> rpm = count * 60000;
+            case HOUR -> rpm = count * 3600000;
+            case DAY -> rpm = count * 86400000;
         }
     }
 
 
-    public synchronized double blocking(int delta) throws InterruptedException {
+    public synchronized double limit(int delta) throws InterruptedException {
 
-        long oldCounter = counter;                                     // 카운터
+        long oldCounter = counter;                                      // 카운터
         long currentMillis = System.currentTimeMillis();                // 현재 시간
-        long expectMillis = (long) (counter * rpm);                     // 예상 경과시간
-        long elapseMillis = currentMillis - startMillis;                // 실제 경과시간
+        long expectMillis = (long) (counter * rpm);                     // 예상 경과시간 (counter 는 delta 값    )
+        long elapseMillis = currentMillis - startMillis;                // 실제 경과시간  (현재시간 - 이전실행시간)
 
         double retVal = 0;
 
@@ -82,10 +67,10 @@ public class RateWaiter02 {
         //   - 실제 경과시간이 빠르게 지나가면 예상시산에 한번 호출될게 여러번 호출되기 때문이다.
         if (expectMillis > elapseMillis) {
             counter += delta;
-            long waitTime = expectMillis - elapseMillis; //예상경과시간 - 실제 경과시간
+            long waitTime = expectMillis - elapseMillis;                     // 예상경과시간 - 실제 경과시간
             wait(waitTime);
-            elapseMillis = System.currentTimeMillis() - startMillis; // 실제 경과 시간을 다시 계산한다.
-            retVal = (double) oldCounter / (double) elapseMillis;
+            elapseMillis = System.currentTimeMillis() - startMillis;         // 실제 경과 시간을 다시 계산한다.
+            retVal = (double) oldCounter / (double) elapseMillis;            // 이전 카운트 / 실제경과시간
             log.debug(String.format("counter: %3d, elapse: %5d, waited: %d retval: %s ", oldCounter, elapseMillis, waitTime, retVal));
         } else {
             retVal = (double) oldCounter / (double) elapseMillis;
@@ -97,9 +82,6 @@ public class RateWaiter02 {
         return retVal;
     }
 
-    public double blocking() throws InterruptedException {
-        return this.blocking(0);
-    }
 
     public synchronized void wakeup() {
         notifyAll();

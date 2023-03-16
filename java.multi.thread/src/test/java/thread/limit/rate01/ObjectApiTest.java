@@ -2,13 +2,13 @@ package thread.blocking.api;
 
 import org.junit.Test;
 import org.junit.jupiter.api.DisplayName;
+import thread.limit.apiexam1.ObjectApi;
+import thread.limit.apiexam1.ObjectBlocking;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.IntStream;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * <pre>
@@ -23,22 +23,11 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 public class ObjectApiTest {
 
-    ObjectBlocking objectBlocking01 = new ObjectBlocking();
+
     ObjectApi.ObjectApi01 objectApi01 = new ObjectApi.ObjectApi01();
     ObjectApi.ObjectApi02 objectApi02 = new ObjectApi.ObjectApi02();
 
-    @Test
-    @DisplayName("하나의 인스턴스만 테스트")
-    public void testObjectBlocking() {
 
-        IntStream.rangeClosed(50,55).forEach(value -> {
-            try {
-                objectBlocking01.objectBlocking("test", value);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        });
-    }
 
     @Test
     @DisplayName("두개의 인스턴스 테스트")
