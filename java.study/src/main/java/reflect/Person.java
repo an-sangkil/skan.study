@@ -8,7 +8,6 @@ package reflect;
  * </pre>
  *
  * @author skan
- * @version Copyright (C) 2021 by CJENM|MezzoMedia. All right reserved.
  * @since 2021/11/01
  */
 public class Person {

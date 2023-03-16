@@ -1,13 +1,10 @@
 package thread.limit.rate02;
 
-import ch.qos.logback.core.util.TimeUtil;
 import org.junit.jupiter.api.Test;
 
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.IntStream;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * <pre>
@@ -20,9 +17,9 @@ import static org.junit.jupiter.api.Assertions.*;
  * @version Copyright (C) 2023 by CJENM|MezzoMedia. All right reserved.
  * @since 2023/03/16
  */
-class RateWaiter02Test {
+class RateWaiterTest {
 
-    RateWaiter02 rateWaiter02 = new RateWaiter02(2, RateWaiter02.Per.SECOND);
+    RateWaiter rateWaiter = new RateWaiter(2, RateWaiter.Per.SECOND);
 
     @Test
     void blocking() {
@@ -33,7 +30,7 @@ class RateWaiter02Test {
                 Random random = new Random();
                 int randomVal = random.nextInt(1,5)+1;
                 TimeUnit.SECONDS.sleep(randomVal);
-                rateWaiter02.limit(2);
+                rateWaiter.limit(2);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

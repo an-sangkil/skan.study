@@ -11,7 +11,6 @@ import java.util.concurrent.*;
  * </pre>
  *
  * @author skan
- * @version Copyright (C) 2021 by CJENM|MezzoMedia. All right reserved.
  * @since 2021-03-04
  */
 public class FutureTaskWebCrawlerTest {

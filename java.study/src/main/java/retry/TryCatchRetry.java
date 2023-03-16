@@ -8,7 +8,6 @@ package retry;
  * </pre>
  *
  * @author skan
- * @version Copyright (C) 2022 by CJENM|MezzoMedia. All right reserved.
  * @since 2022/11/15
  */
 public class TryCatchRetry {
