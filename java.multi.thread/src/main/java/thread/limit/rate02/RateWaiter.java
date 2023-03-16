@@ -11,7 +11,7 @@ import lombok.extern.slf4j.Slf4j;
  * @since 2022/03/28
  */
 @Slf4j
-public class RateWaiter02 {
+public class RateWaiter {
 
 
     public enum Per {
@@ -29,7 +29,7 @@ public class RateWaiter02 {
 
     /**
      * rpm 생성기
-     * {@link RateWaiter02#RateWaiter02(long, Per)} count argument 값에 따라 rpm 이 조절된다.
+     * {@link RateWaiter#RateWaiter(long, Per)} count argument 값에 따라 rpm 이 조절된다.
      * {@code
      * new RateWaiter02(1, SECOND);  초당 딜레이시간 기본 1초
      * new RateWaiter02(2, SECOND);  초당 딜레이시간 기본 2초
@@ -39,7 +39,7 @@ public class RateWaiter02 {
      * @param count rpm 을 미세 조정 하는 숫자,
      * @param unit
      */
-    public RateWaiter02(long count, Per unit) {
+    public RateWaiter(long count, Per unit) {
 
         this.startMillis = System.currentTimeMillis();
         this.counter = 0;

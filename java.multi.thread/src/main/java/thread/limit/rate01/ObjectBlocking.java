@@ -1,10 +1,10 @@
-package thread.limit.apiexam1;
+package thread.limit.rate01;
 
 import lombok.extern.slf4j.Slf4j;
 
+import javax.swing.*;
 import java.util.Timer;
 import java.util.TimerTask;
-import java.util.concurrent.TimeUnit;
 
 /**
  * 지정된 시간만큼 wait 하고 wakeup 하는 오브젝트
@@ -17,7 +17,7 @@ import java.util.concurrent.TimeUnit;
 @Slf4j
 public class ObjectBlocking {
 
-    public static final Object THREAD_OBJECT = new Object();
+    public final Object lock = new Object();
 
     // 시작 시간
     private long startTimeMil;
@@ -49,37 +49,48 @@ public class ObjectBlocking {
      * @param serverName 서버이름 입력
      * @throws InterruptedException
      */
-    public void objectBlocking(String serverName) throws InterruptedException {
+    public synchronized void  objectBlocking(String serverName) throws Exception {
 
-        synchronized (THREAD_OBJECT) {
-            long currentTimeMil = System.currentTimeMillis();
-            long estimateTime = criteriaTimeMil * count;      // 예상시간 (기준시간*카운트)
-            long elapseTime = currentTimeMil - startTimeMil ; // 경과시간  (시작시간-현재시간)
+        long currentTimeMil = System.currentTimeMillis();
+        long estimateTime = criteriaTimeMil * count;      // 예상시간 (기준시간*카운트)
+        long elapseTime = currentTimeMil - startTimeMil; // 경과시간  (시작시간-현재시간)
 
 
-            if (criteriaTimeMil > elapseTime) {  // ( 예산시간 > 경과시간[첫시작으로부터 시간])
-                long waitTime = criteriaTimeMil - elapseTime;
+        if (criteriaTimeMil > elapseTime) {  // ( 예산시간 > 경과시간[첫시작으로부터 시간])
+            long waitTime = criteriaTimeMil - elapseTime;
+
+            synchronized (lock) {
                 Timer timer = new Timer();
                 timer.schedule(new TimerTask() {
                     @Override
                     public void run() {
-                        synchronized (THREAD_OBJECT) {
-                            //log.warn("2. {} thread wake up!!! - complete!! ", serverName);
-                            THREAD_OBJECT.notify();
+                        //log.warn("2. {} thread wake up!!! - complete!! ", serverName);
+                        synchronized (lock) {
+                            lock.notify();
 
                         }
                     }
                 }, waitTime);
-                log.info(" 순서 : {}, 경과시간: {}  대기사간: {}", count, elapseTime, waitTime);
-                //log.warn("1. {} thread sleep - order !! ", serverName);
-                THREAD_OBJECT.wait();
-            } else {
-                log.info(" 순서 : {}, 경과시간: {} ", count, elapseTime);
-            }
-            startTimeMil = System.currentTimeMillis();
-            count += 1;
+                try {
+                    lock.wait();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                timer.cancel();
 
+            }
+
+            log.info("{} 순서 : {}, 경과시간: {}  대기사간: {}", serverName, count, elapseTime, waitTime);
+            //log.warn("1. {} thread sleep - order !! ", serverName);
+
+        } else {
+            log.info("{} 순서 : {}, 경과시간: {} ", serverName, count, elapseTime);
         }
+
+        // 작업이 끝난뒤 , 시작시간을 변경해준다.
+        startTimeMil = System.currentTimeMillis();
+        count += 1;
+
 
     }
 

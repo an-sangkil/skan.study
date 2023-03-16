@@ -1,10 +1,8 @@
-package thread.blocking;
+package thread.limit.rate01;
 
-import lombok.val;
 import org.junit.Test;
 import org.junit.jupiter.api.DisplayName;
-import thread.limit.apiexam1.ObjectBlocking;
-import thread.limit.rate01.ObjectSDK;
+import thread.limit.rate01.ObjectBlocking;
 
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
@@ -29,16 +27,19 @@ public class ObjectBlocking02Test {
     @DisplayName("하나의 인스턴스만 테스트")
     public void testObjectBlocking() {
 
+        // RateLimiter 설정 (5, 초)  -> 5초 대기
         ObjectBlocking objectBlocking01 = new ObjectBlocking(5, ObjectBlocking.UnitType.SECOND);
         IntStream.rangeClosed(1,10).forEach(value -> {
             try {
 
                 Random random = new Random();
-                int randomVal = random.nextInt(1, 5) + 1;
+                int randomVal = random.nextInt(1, 3) + 1;
                 TimeUnit.SECONDS.sleep(randomVal);
-                objectBlocking01.objectBlocking("test");
 
-            } catch (InterruptedException e) {
+                // 서버명을 입력
+                objectBlocking01.objectBlocking("TEST-SERVER");
+
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         });
