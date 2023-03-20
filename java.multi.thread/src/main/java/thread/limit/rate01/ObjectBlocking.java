@@ -17,6 +17,7 @@ import java.util.TimerTask;
 @Slf4j
 public class ObjectBlocking {
 
+    // 병렬처리시 스테텍으로 선언하면 인스턴스 생성시 여러쓰레드에서 같은 공간을 바라보게 되어 꼬일수있다.
     public final Object lock = new Object();
 
     // 시작 시간
