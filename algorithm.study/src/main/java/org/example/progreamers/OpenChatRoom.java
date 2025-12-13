@@ -1,9 +1,6 @@
 package org.example.progreamers;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class OpenChatRoom {
 
@@ -40,6 +37,11 @@ public class OpenChatRoom {
             String userId  = events.get(i)[1];
             String userNAme = map.get(userId);
 
+            if (action.equals("Leave")) {
+                answer[i] = userNAme+" " +"님이 나갔습니다.";
+            } else {
+                answer[i] = userNAme+" " +"님이 들어왔습니다.";
+            }
 
 
         }
@@ -53,7 +55,8 @@ public class OpenChatRoom {
 
 
         OpenChatRoom openChatRoom = new OpenChatRoom();
-        openChatRoom.solution(recore);
+        Arrays.asList(openChatRoom.solution(recore)).forEach(System.out::println);
+
     }
 
 }
