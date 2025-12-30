@@ -50,14 +50,17 @@ public class DFSLinkedList {
 
 
         //스택
+        System.out.println("--------------------------------------------- stack");
         this.solutionStack(start, adj, size);
         System.out.println();
-        System.out.println("---------------------------------------------");
 
+        // 큐, 큐로 검색하면  BFS  가 된다.
+        System.out.println("--------------------------------------------- queue");
         this.queueSolution(start,adj,size);
         System.out.println();
-        System.out.println("---------------------------------------------");
+
         // 재귀
+        System.out.println("--------------------------------------------- recursion");
         boolean[] visited = new boolean[size];
         this.recursionSolution(start, adj, visited);
     }

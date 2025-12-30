@@ -4,7 +4,7 @@ package org.example.plain;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class BFDFriendSearch {
+public class BFSFriendSearch {
 
     public void bfs(int start, LinkedList<Integer>[] list, int nodeSize) {
 
@@ -39,7 +39,7 @@ public class BFDFriendSearch {
         adj[3].add(4); adj[4].add(3); // 3-4
         adj[2].add(5); adj[5].add(2); // 2-5
 
-        BFDFriendSearch f = new BFDFriendSearch();
+        BFSFriendSearch f = new BFSFriendSearch();
         f.bfs(0, adj, n);
     }
 
