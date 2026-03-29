@@ -30,7 +30,9 @@ public class BFSFriendSearch {
     public static void main(String[] args) {
         int n = 6; // 0~5번까지 친구들
         LinkedList<Integer>[] adj = new LinkedList[n];
-        for (int i = 0; i < n; i++) adj[i] = new LinkedList<>();
+        for (int i = 0; i < n; i++) {
+            adj[i] = new LinkedList<>();
+        }
 
         // 인맥 연결 (양방향)
         adj[0].add(1); adj[1].add(0); // 0-1

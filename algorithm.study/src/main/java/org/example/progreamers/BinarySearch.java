@@ -16,24 +16,34 @@ public class BinarySearch {
 
     public int search(int[] nums, int target) {
 
+        // 탐색 범위의 시작점을 0으로 초기화
         int low  = 0;
+        // 탐색 범위의 끝점을 배열의 마지막 인덱스로 초기화
         int high = nums.length -1;
 
+        // low가 high보다 작거나 같을 때까지 반복 (탐색 범위가 유효한 동안)
         while (low <= high) {
-            //int mid = low+high / 2;
+            // 중간 인덱스 계산: 오버플로우 방지를 위해 low + (high - low) / 2 사용
+            // (low + high) / 2 대신 사용하여 큰 수의 합으로 인한 오버플로우 방지
             int mid = low + (high - low) /2;
 
+            // 중간값이 목표값과 같으면 해당 인덱스 반환
             if ( nums [mid] == target) {
                 return mid;
-            } else if ( nums[mid] < target) {
-                low = mid + 1;
-            } else {
-                high = mid -1;
             }
-            
-        }
-        
 
+            // 중간값이 목표값보다 작으면 오른쪽 절반을 탐색
+            if ( nums[mid] < target) {
+                low = mid + 1;  // 탐색 범위를 중간값의 오른쪽으로 좁힘
+            }
+            // 중간값이 목표값보다 크면 왼쪽 절반을 탐색
+            else {
+                high = mid -1;  // 탐색 범위를 중간값의 왼쪽으로 좁힘
+            }
+
+        }
+
+        // 목표값을 찾지 못한 경우 -1 반환
         return -1;
 
     }

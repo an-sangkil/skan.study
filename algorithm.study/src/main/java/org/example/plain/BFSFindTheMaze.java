@@ -9,52 +9,48 @@ import java.util.Queue;
  */
 public class BFSFindTheMaze {
 
-    int[] dr = {-1,1,0,0};
-    int[] dc = {0,0,-1,1};
+   int dr[] = {-1,1,0,0,};
+   int dc[] = {0,0,-1,1};
 
     public int soluction(int[][] maps){
+        int n = maps.length;    // 행
+        int m = maps[0].length; // 열
 
-        int n = maps.length ;   // 행
-        int m = maps[0].length;  // 열
-
-        boolean[][] visited =  new boolean[n][m];
-
+        boolean[][] visited = new boolean[n][m];
         Queue<int[]> queue = new ArrayDeque<>();
 
-        queue.add(new int[]{0,0,1});//0,0에서 시작 거리는 1
-        visited[0][0] = true; //방문처리
-
-        while(!queue.isEmpty()) {
+        queue.add(new int[]{0,0,1});
+        visited[0][0]= true;
+        while (!queue.isEmpty()) {
 
             int[] current = queue.poll();
-            int r = current[0];
-            int c = current[1];
-            int dist = current[2]; //거리
+            int cr = current[0];
+            int cc = current[1];
+            int dist = current[2];
 
-            // 현재 위치가 목적지인경우 
-            if( r==n-1 && c== m-1){
+            if (cr == n-1 && cc == m-1){
+
                 return dist;
             }
 
-            // 4방향 탐색
-            for (int i=0 ; i<4; i++){
-                int nr = r+dr[i];
-                int nc = c+dc[i];
+            for (int i=0 ; i < 4 ; i++) {
 
-                // 유효성 검사 
-                if(nr >= 0 && nr< n && nc>=0 && nc <m) {
-                    if (maps[nr][nc] == 1 &&!visited[nr][nc]) {
-                        
-                        visited[nr][nc]= true;
-                        queue.add(new int[]{nr,nc,dist+1});
+                int nr = cr+dr[i];
+                int nc = cc+dc[i];
+
+                if(nr >=0 && nr < n && nc >= 0 && nc < m){
+                    if (maps[nr][nc]==1 && !visited[nr][nc]) {
+                        visited[nr][nc] = true;
+                        queue.add(new int[]{nr,nc, dist+1});
                     }
-
                 }
-
 
             }
 
         }
+
+
+
         return -1;
     }
 
