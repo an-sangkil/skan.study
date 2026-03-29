@@ -14,14 +14,11 @@ public class RemoveElement {
     public int  removeElement(int[] nums, int val) {
 
         int k=0;
-        // 두개의 포인트를 이용한다. i, k
-        for (int i=0; i< nums.length; i++) {
+        for (int i=0 ; i < nums.length ; i++) {
 
-            // 값이 같으면 해당 위치는 다른 값으로 대체해야 하기 때문에 패스 한다.
             if (nums[i] != val) {
-                //같은 값이 아닌 경우 Array 의 첫번째 값을 i 값으로 대체한다
+                // 배열을 재정의하면서..
                 nums[k] = nums[i];
-                // 이후 k값을 증가 한다.
                 k++;
             }
         }
@@ -34,12 +31,13 @@ public class RemoveElement {
     public static void main(String[] args) {
 
         RemoveElement removeElement = new RemoveElement();
-        int[] nums = {3, 2, 2, 3};
+        int[] nums = {3, 2, 2, 3,1,3};
         int val = 3;
         int result = removeElement.removeElement(nums, val);
 
-        // 변경 교체된 Array
+        // 변경 교체된 Array 를 보여주자.
         System.out.println("Result: " + Arrays.toString(nums));
+
         // k번만큼만 Array를 복사한다. (변경한 어레이 크기만큼)
         System.out.println("Result: " + Arrays.toString(Arrays.copyOf(nums,result)));
 

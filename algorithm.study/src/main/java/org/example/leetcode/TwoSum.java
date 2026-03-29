@@ -34,7 +34,7 @@ public class TwoSum {
 
     public int[] twoSum2(int[] nums, int target) {
 
-
+        // index, value
         Map<Integer, Integer> map = new HashMap<>();
 
         // 값을 순회 하며 합하여 확인
@@ -42,9 +42,9 @@ public class TwoSum {
 
             int current = nums[i];
             int complement = target - current;
-
+            System.out.println( target + "-" + current + "=" + complement );
             // map에 이미등록된 보수가 있는지 확인한다.
-            // 보수란 ?   어떤 수에 더해 특정 기준이 되는 수 
+            // 보수란 ?   어떤 수에 더해 특정 기준이 되는 수
             //  1) 10이 되기 위한 3의 보수는 7  ( 3+7 = 10)
             //  2) 5이 되기 위한  10의 보수는 2 ( 5 = 10/2)
             // 덧셈 뺄셈 나눗셈... 등 특정기준이 되게 해주는 수를 뜻함.

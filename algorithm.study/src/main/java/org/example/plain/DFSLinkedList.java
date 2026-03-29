@@ -14,7 +14,52 @@ import java.util.Stack;
  * [명일 (5)]
  */
 public class DFSLinkedList {
+    public static void main(String[] args) {
 
+        // 5개의 노드를 가정한다.
+        int nodeSize = 6;
+
+        // 노드를 이어줄 링크드리스트 생성
+        LinkedList<Integer>[] adj = new LinkedList[nodeSize];
+        for (int i = 0; i < nodeSize; i++) {
+            adj[i] = new LinkedList<>();
+        }
+
+        adj[0].add(1);
+        adj[1].add(0);
+        adj[1].add(2);
+        adj[2].add(1);
+        adj[2].add(5);
+        adj[5].add(2);
+        adj[0].add(3);
+        adj[3].add(0);
+        adj[3].add(4);
+        adj[4].add(3);
+
+        DFSLinkedList bfs = new DFSLinkedList();
+        //bfs.solution(0, adj, nodeSize);
+        bfs.dfs(0, adj, nodeSize);
+
+    }
+
+
+    public void dfs(int start, LinkedList<Integer>[] adj, int size) {
+
+        //스택
+        System.out.println("--------------------------------------------- stack");
+        this.solutionStack(start, adj, size);
+        System.out.println();
+
+        // 큐, 큐로 검색하면  BFS  가 된다.
+        System.out.println("--------------------------------------------- queue");
+        this.queueSolution(start,adj,size);
+        System.out.println();
+
+        // 재귀
+        System.out.println("--------------------------------------------- recursion");
+        boolean[] visited = new boolean[size];
+        this.recursionSolution(start, adj, visited);
+    }
 
     public void solutionStack(int start, LinkedList<Integer>[] adj, int size) {
 
@@ -43,26 +88,6 @@ public class DFSLinkedList {
                 }
             }
         }
-    }
-
-
-    public void dfs(int start, LinkedList<Integer>[] adj, int size) {
-
-
-        //스택
-        System.out.println("--------------------------------------------- stack");
-        this.solutionStack(start, adj, size);
-        System.out.println();
-
-        // 큐, 큐로 검색하면  BFS  가 된다.
-        System.out.println("--------------------------------------------- queue");
-        this.queueSolution(start,adj,size);
-        System.out.println();
-
-        // 재귀
-        System.out.println("--------------------------------------------- recursion");
-        boolean[] visited = new boolean[size];
-        this.recursionSolution(start, adj, visited);
     }
 
     private void recursionSolution(int current, LinkedList<Integer>[] adj, boolean[] visited) {
@@ -105,32 +130,4 @@ public class DFSLinkedList {
     }
 
 
-    public static void main(String[] args) {
-
-        // 5개의 노드를 가정한다.
-        int nodeSize = 6;
-
-        // 노드를 이어줄 링크드리스트 생성
-        LinkedList<Integer>[] adj = new LinkedList[nodeSize];
-        for (int i = 0; i < nodeSize; i++) {
-            adj[i] = new LinkedList<>();
-        }
-
-        adj[0].add(1);
-        adj[1].add(0);
-        adj[1].add(2);
-        adj[2].add(1);
-        adj[2].add(5);
-        adj[5].add(2);
-        adj[0].add(3);
-        adj[3].add(0);
-        adj[3].add(4);
-        adj[4].add(3);
-
-        DFSLinkedList bfs = new DFSLinkedList();
-        //bfs.solution(0, adj, nodeSize);
-        bfs.dfs(0, adj, nodeSize);
-
-
-    }
 }
