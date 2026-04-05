@@ -49,10 +49,12 @@ public class TwoSum {
             //  2) 5이 되기 위한  10의 보수는 2 ( 5 = 10/2)
             // 덧셈 뺄셈 나눗셈... 등 특정기준이 되게 해주는 수를 뜻함.
             if ( map.containsKey(complement)) {
+
+                // 보수에 대한 value 즉 index, 현재 index
                 return new int[]{ map.get(complement),i};
             }
 
-            // 보수가 없는경우 현재 값을 등록한다.
+            // 보수가 없는경우 현재 값, 인덱스정보를 등록한다.
             map.put(current, i);
 
         }

@@ -69,35 +69,26 @@ public class 총금액계산 {
                 }
         );
 
-        List<Integer> valueList = new ArrayList<>(lankingMap.values());
-        valueList.sort((o1, o2) -> o2.compareTo(o1));
+        // 이름으로 sorting asc
+        List<String> valueList = new ArrayList<>(lankingMap.keySet());
+        valueList.sort((o1, o2) -> o1.compareTo(o2)); //asc
+        //valueList.sort((o1, o2) -> o2.compareTo(o1)); //desc
+        valueList.forEach(name -> {
+            System.out.println( "name : " + name + " value : " + lankingMap.get(name) );
+        });
 
-
+        // 금액으로 Sorting
         List<Map.Entry<String,Integer>> list = new ArrayList<>(lankingMap.entrySet());
-
         list.sort((a, b) -> {
-
             if (!b.getValue().equals(a.getValue())){
-
                 return b.getValue() - a.getValue();
             }
-
             return a.getKey().compareTo(b.getKey());
-
         });
-
 
         list.forEach(stringIntegerEntry -> {
-
             System.out.println("key = "+ stringIntegerEntry.getKey() +"  value ="+ stringIntegerEntry.getValue() );
-
-
         });
-
-
-
-
-
 
 
     }

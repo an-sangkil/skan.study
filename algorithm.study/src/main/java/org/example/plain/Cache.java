@@ -34,14 +34,11 @@ public class Cache {
             String city = cities[i].toLowerCase();
 
             if (!cacheLRU.contains(city)){
-
                 answer += 5;
                 if (cacheLRU.size() >= cacheSize) {
                     cacheLRU.removeFirst();
-
                 }
                 cacheLRU.add(city);
-
                 continue;
             }
 
@@ -50,9 +47,6 @@ public class Cache {
                 cacheLRU.remove(city);
                 cacheLRU.add(city);
             }
-
-
-
         }
 
 
